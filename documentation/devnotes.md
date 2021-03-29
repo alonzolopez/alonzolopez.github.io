@@ -38,6 +38,15 @@ Some themes I like:
 - [Prologue](https://jamstackthemes.dev/theme/jekyll-theme-prologue/)
 - [Jasper](https://jamstackthemes.dev/theme/jasper2/)
 
+## Workflow
+Make changes in the repo, then run the following to test locally:
+```
+bundle exec jekyll serve
+```
+Go to the url in the terminal to see the changes locally.
+
+Then push to the central repo hosted on github and wait for changes to appear online.
+
 ## Minimal Mistakes Theme
 [Quick Start Guide](https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/)
 ```
@@ -58,3 +67,11 @@ I think I messed up by running `jekyll new myblog` and not `jekyll new .`
 I should've run the [MM template auto-generator](https://github.com/mmistakes/mm-github-pages-starter/generate) to create my repo `alonzolopez/alonzolopez.github.io`.
 
 See [configuration](https://mmistakes.github.io/minimal-mistakes/docs/configuration) for more info on configuring the site.
+
+Next steps:
+- Configure my site following [MM's Configuration guide](https://mmistakes.github.io/minimal-mistakes/docs/configuration/)
+- Add a quotes page
+- check the skins options 
+- figure out how to do a portfolio gallery. maybe look at [Layouts](https://mmistakes.github.io/minimal-mistakes/docs/layouts/)
+- Edit the [navigation](https://mmistakes.github.io/minimal-mistakes/docs/navigation/)
+
