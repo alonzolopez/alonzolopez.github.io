@@ -135,3 +135,6 @@ Basically, just:
     ---
     ```
 3. Populate the page with content in markdown's syntax.
+
+## Adding Custom Sidebar Menus
+[Custom Sidebar Menu](https://mmistakes.github.io/minimal-mistakes/docs/layouts/#custom-sidebar-navigation-menu)
