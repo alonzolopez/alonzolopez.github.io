@@ -1,15 +1,14 @@
 ---
 title: "Discrete-Time Kalman Filter"
-date: 2021-03-29T15:34:30-04:00
+# date: 2021-03-29T15:34:30-04:00
 categories:
   - Robotics
-tags:
-  - Jekyll
-  - update
+# tags:
+#   - Jekyll
+#   - update
 ---
-# Discrete-Time Kalman Filter
+# Problem Statement
 271A Project
-## Statement
 project statement
 ## Report
 report here

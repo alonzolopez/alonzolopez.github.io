@@ -87,9 +87,9 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: true
+      comments: false
       share: true
-      related: true
+      related: false
   # _pages
   - scope:
       path: "_pages"
@@ -97,6 +97,31 @@ defaults:
     values:
       layout: single
       author_profile: true
+  # _portfolio
+  - scope:
+      path: ""
+      type: portfolio
+    values:
+      layout: single
+      author_profile: true
+      share: true
+  # music
+  - scope:
+      path: ""
+      type: music
+    values:
+      layout: single
+      author_profile: true
+      share: true
+  # quotes
+  # - scope:
+  #     path: ""
+  #     type: quotes
+  #   values:
+  #     layout: single
+  #     author_profile: true
+  #     share: true
+
 
 category_archive:
   type: liquid
@@ -104,3 +129,14 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+collections:
+  portfolio: 
+    output: true
+    permalink: /:collection/:path/
+  music:
+    output: true 
+    permalink: /:collection/:path/
+  # quotes:
+  #   output: true 
+  #   permalink: /:collection/:path/
