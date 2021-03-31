@@ -138,3 +138,10 @@ Basically, just:
 
 ## Adding Custom Sidebar Menus
 [Custom Sidebar Menu](https://mmistakes.github.io/minimal-mistakes/docs/layouts/#custom-sidebar-navigation-menu)
+
+## Embedding YouTube Videos
+On the YouTube video you'd like to share, click **Share** > **Embed** and under **Embed Options** check **Enable privacy-enhanced mode**. Then click **Copy** and paste the html in your .md file.
+For example:
+```html
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/7-lWzQd_xeQ?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```

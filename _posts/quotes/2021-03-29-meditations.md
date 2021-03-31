@@ -1,10 +1,10 @@
 ---
-title: "Vacation"
+title: "Retiring to the Mind"
 date: 2021-03-29T15:34:30-04:00
 categories:
-  - Stoicism
   - Quotes
-# tags:
+tags:
+  - Mental Health
 #   - Jekyll
 #   - update
 ---
