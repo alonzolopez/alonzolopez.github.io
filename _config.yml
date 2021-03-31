@@ -21,6 +21,7 @@ twitter_username: N/A
 github_username: N/A
 minimal_mistakes_skin: default
 search: true
+repository: "alonzolopez/alonzolopez.github.io"
 
 # Build settings
 markdown: kramdown
@@ -68,6 +69,18 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/alonzolopez"
+    - label: "SoundCloud"
+      icon: "fab fa-fw fa-soundcloud"
+      url: "https://soundcloud.com/raging-chili-pepper"
+    - label: "YouTube"
+      url: "https://www.youtube.com/channel/UCoXeO-TAjg6lHTN-VbZTL-A"
+      icon: "fab fa-fw fa-youtube"
+    - label: "LinkedIn"
+      url: "https://www.linkedin.com/in/alonzo-e-lopez/"
+      icon: "fab fa-fw fa-linkedin"
+
+atom_feed:
+  hide: true
 
 footer:
   links:
@@ -88,8 +101,9 @@ defaults:
       author_profile: true
       read_time: true
       comments: false
-      share: true
+      share: false
       related: false
+      show_date: true
   # _pages
   - scope:
       path: "_pages"
@@ -97,6 +111,7 @@ defaults:
     values:
       layout: single
       author_profile: true
+      share: false
   # _portfolio
   - scope:
       path: ""
@@ -104,7 +119,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-      share: true
+      share: false
   # music
   - scope:
       path: ""
@@ -112,7 +127,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-      share: true
+      share: false
   # quotes
   # - scope:
   #     path: ""
