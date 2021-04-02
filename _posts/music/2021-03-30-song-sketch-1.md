@@ -1,5 +1,5 @@
 ---
-title: "Song Sketch"
+title: "Song Sketch 2021-03-30"
 date: 2021-03-30T22:30:30-04:00
 categories:
   - Music
@@ -10,4 +10,23 @@ tags:
 This is in the key of A. 
 I really like the part that stays on the IVmaj7 while the bassline moves. 
 
-I<sup>maj 7</sup> IVmaj<sup>7</sup> iii<sup>7</sup> vi ii<sup>9</sup>
+
+I<sup>maj 7</sup> IVmaj<sup>7</sup> iii<sup>7</sup> vi 
+
+ii<sup>9</sup> vi ii<sup>9</sup> vi 
+
+V ii<sup>6</sup> V V<sup>add9</sup> 
+
+IV<sup>maj7</sup> IV<sup>maj7</sup>/ii IV<sup>maj7</sup>/iii 
+
+IV<sup>maj7</sup> IV<sup>maj7</sup>/ii 
+
+vi ii<sup>9</sup> vi 
+
+V ii<sup>6</sup> V V<sup>add9</sup> 
+
+IV<sup>maj7</sup> IV<sup>maj7</sup>/ii IV<sup>maj7</sup>/iii 
+
+IV<sup>maj7</sup> IV<sup>maj7</sup>/ii 
+
+vi
