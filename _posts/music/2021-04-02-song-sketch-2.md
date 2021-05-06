@@ -16,9 +16,9 @@ I<sup>maj 7</sup> IV<sup>maj7</sup> vii<sup>o</sup> iii<sup>7</sup> vi ii<sup>7<
 I<sup>maj 7</sup> IV<sup>maj7</sup> vii<sup>o</sup> iii<sup>7</sup> III<sup>7</sup> IV<sup>maj7</sup> vii<sup>o</sup> iii<sup>7</sup>
 vi ii<sup>7</sup> V<sup>7</sup> V<sup>7</sup>/#V
 
-vi V ii<sup>6</sup> V V<sup>add9</sup> IV<sup>maj7</sup> IV<sup>maj7</sup>/ii IV<sup>maj7</sup>/iii IV<sup>maj7</sup> IV<sup>maj7</sup>/iii
+vi V IV<sup>6</sup> V V<sup>add9</sup> IV<sup>maj7</sup> IV<sup>maj7</sup>/ii IV<sup>maj7</sup>/iii IV<sup>maj7</sup> IV<sup>maj7</sup>/iii
 
-vi ii<sup>9</sup> vi V ii<sup>6</sup> V V<sup>add9</sup> IV<sup>maj7</sup> IV<sup>maj7</sup>/ii IV<sup>maj7</sup>/iii IV<sup>maj7</sup> IV<sup>maj7</sup>/iii
+vi ii<sup>9</sup> vi V IV<sup>6</sup> V V<sup>add9</sup> IV<sup>maj7</sup> IV<sup>maj7</sup>/ii IV<sup>maj7</sup>/iii IV<sup>maj7</sup> IV<sup>maj7</sup>/iii
 
 vi ii<sup>9</sup> vi
 
