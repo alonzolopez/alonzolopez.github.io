@@ -1,7 +1,7 @@
 ---
 title: "Portfolio"
-# layout: collection
-layout: splash
+layout: collection
+# layout: splash
 permalink: /portfolio/
 collection: portfolio
 entries_layout: grid
@@ -10,4 +10,5 @@ show_excerpts: true
 sort_by: date # date (default), title or any metadata key added to the collection's documents
 sort_order: forward # forward (default), reverse
 ---
+
 

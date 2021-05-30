@@ -30,7 +30,16 @@ As a member of the exteriour housing sub-team, my contributions included:
 - Fabrication of components (water jetting and 3D printing) for those sub-assemblies in the exterior housing and foot pedal.
 - Implementing and managing our team's CAD version control system. This was crucial to our success as our team of 17 engineers rapidly iterated on a hardware product with many moving and interacting parts. All 17 of us were able to work on the top-level assembly at once without version conflicts.
 
-![Volti CAD Render](/assets/images/portfolio/Volti/Volti_CAD.jpg)
+
+<!-- <figure>
+  <img src="/assets/images/portfolio/Volti/Volti_CAD.jpg" alt="Trulli" style="width:100%">
+  <figcaption>3D render of Volti's Walnut model</figcaption>
+</figure> -->
+
+<figure>
+  <img src="/assets/images/portfolio/Volti/Volti_CAD.jpg" alt="Trulli" style="width:100%">
+  <figcaption>3D render of Volti's Walnut model</figcaption>
+</figure>
 
 # The Evolution of the Product
 As the exteriour housing sub-team, it was our job to make sure Volti was beautiful enough to share the stage with a Steinway piano. In order to accomplish that task, we used an ebony exterior housing for the Alpha prototype and brass inlays to match the brass on a Steinway. Even the foot pedal's brass top is inspired by the brass foot pedals seen on many pianos. Below you'll see all the iterations that we produced on the road to the final presentation's ebony Alpha prototype.  
