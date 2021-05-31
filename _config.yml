@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Digital Portfolio
+title: Alonzo Lopez
 email: aelopez1996@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Alonzo Lopez's digital portfolio.
@@ -65,16 +65,17 @@ author:
   links:
     - label: "Portfolio"
       icon: "fas fa-fw fa-link"
-      url: "https://alonzolopez.github.io/portfolio"
+      # url: "https://alonzolopez.github.io/portfolio"
+      url: "/portfolio/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/alonzolopez"
     - label: "SoundCloud"
       icon: "fab fa-fw fa-soundcloud"
       url: "https://soundcloud.com/raging-chili-pepper"
-    - label: "YouTube"
-      url: "https://www.youtube.com/channel/UCoXeO-TAjg6lHTN-VbZTL-A"
-      icon: "fab fa-fw fa-youtube"
+    # - label: "YouTube"
+    #   url: "https://www.youtube.com/channel/UCoXeO-TAjg6lHTN-VbZTL-A"
+    #   icon: "fab fa-fw fa-youtube"
     - label: "LinkedIn"
       url: "https://www.linkedin.com/in/alonzo-e-lopez/"
       icon: "fab fa-fw fa-linkedin"
@@ -86,7 +87,7 @@ footer:
   links:
     - label: "Portfolio"
       icon: "fas fa-fw fa-link"
-      url: "https://alonzolopez.github.io/portfolio"
+      url: "/portfolio/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/alonzolopez"
