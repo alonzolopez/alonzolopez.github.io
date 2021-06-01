@@ -6,6 +6,11 @@ tags:
   - C++
   - Python
   - ROS
+  - NVIDIA Jetson
+  - Electronics
+  - SolidWorks
+  - Robotic Manipulator
+  - Project Management
 ---
 Ironsight is my main technical project at work. Here are the publicly releasable details:
 

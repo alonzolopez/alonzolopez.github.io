@@ -5,6 +5,8 @@ categories:
   - Robotics
 tags:
   - State Estimation
+  - Control Systems
+  - Python
 output: 
   - html_document:
     - includes:

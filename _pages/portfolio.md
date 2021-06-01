@@ -4,43 +4,44 @@ author_profile: true
 layout: splash
 permalink: /portfolio/
 feature_row:
-  - image_path: /assets/images/portfolio/Volti/Volti_HousingEvolution.jpg
+  - image_path: /assets/images/portfolio/Volti/Volti_HousingEvolution.resized.jpg
     url: "/portfolio/Volti/"
     title: "Volti"
-    excerpt: "A hands-free sheet music page turner that allows musicians to play without interruption."
+    excerpt: "A hands-free sheet music page turner that allows musicians to play without interruption"
     btn_label: "Read More"
     btn_class: "btn--inverse"
-  - image_path: /assets/images/portfolio/bbot/MAE263A_Isometric.JPG
+  - image_path: /assets/images/portfolio/bbot/MAE263A_Isometric_square.JPG
     url: "/portfolio/bbot/"
     title: "B-BOT"
     excerpt: "A.K.A. Bartender Bot"
     btn_label: "Read More"
     btn_class: "btn--inverse"
-  - image_path: /assets/images/portfolio/ct-kf/missile-intercept-illustration.png
-    url: "/portfolio/CT-KF/"
-    title: "Continuous-Time Kalman Filter"
-    excerpt: "A continuous-time Kalman filter for relative state estimation between a missile and its target."
+  - image_path: /assets/images/portfolio/boat/boat_iso.resized.jpg
+    url: "/portfolio/boat/"
+    title: "Autonomous Boat"
+    excerpt: "An autonomous boat on the Charles River"
     btn_label: "Read More"
     btn_class: "btn--inverse"
+
 dcp_row:
-  - image_path: /assets/images/portfolio/DCP/Sensor.jpg
+  - image_path: /assets/images/portfolio/DCP/Sensor_square.jpg
     url: "/portfolio/DCP/"
     title: "Digital Construction Platform"
     excerpt: 'Environment-specific structures through advanced sensing and Additive Manufacturing'
     btn_label: "Read More"
     btn_class: "btn--inverse"
 ironsight_row:
-  - image_path: /assets/images/portfolio/ironsight/ironsight_thumbnail.png
+  - image_path: /assets/images/portfolio/ironsight/ironsight_thumbnail_square.png
     url: "/portfolio/ironsight/"
     title: "Ironsight"
-    excerpt: "A robotic test bed for close-proximity interactions between autonomous CubeSats."
+    excerpt: "A robotic test bed for close-proximity interactions between autonomous CubeSats"
     btn_label: "Read More"
     btn_class: "btn--inverse"
 feature_row3:
-  - image_path: /assets/images/portfolio/boat/boat_iso.jpg
-    url: "/portfolio/boat/"
-    title: "Autonomous Boat"
-    excerpt: "An autonomous boat on the Charles River"
+  - image_path: /assets/images/portfolio/ct-kf/missile-intercept-illustration.resized.png
+    url: "/portfolio/CT-KF/"
+    title: "Continuous-Time Kalman Filter"
+    excerpt: "A continuous-time Kalman filter for relative state estimation between a missile and its target"
     btn_label: "Read More"
     btn_class: "btn--inverse"
 ---

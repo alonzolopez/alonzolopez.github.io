@@ -7,6 +7,8 @@ tags:
   - Manufacturing
   - CAD
   - Prototyping
+  - SolidWorks
+  - Mechanical Design
 ---
 Volti is a hands-free sheet music page turner that allows musicians to play without interruption.
 

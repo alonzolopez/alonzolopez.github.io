@@ -6,6 +6,12 @@ tags:
   - CAD
   - Prototyping
   - Arduino
+  - ROS
+  - Robotic Manipulator
+  - Python
+  - Electronics
+  - SolidWorks
+  - Project Management
 ---
 # What is It?
 B-BOT is a Bartender Bot. Our team of four designed, built, and programmed B-BOT to mix drinks based on preconfigured recipes.
