@@ -1,4 +1,6 @@
 ---
+# Guidance on drafting a portfolio:
+# https://mitcommlab.mit.edu/meche/commkit/portfolio/
 title: "Portfolio"
 author_profile: true
 layout: splash
@@ -45,8 +47,8 @@ feature_row3:
     btn_label: "Read More"
     btn_class: "btn--inverse"
 ---
-{% include feature_row id="dcp_row" type="left" %}
-{% include feature_row id="ironsight_row" type="right" %}
+{% include feature_row id="ironsight_row" type="left" %}
+{% include feature_row id="dcp_row" type="right" %}
 {% include feature_row id="feature_row"%}
 {% include feature_row id="feature_row3" %}
 

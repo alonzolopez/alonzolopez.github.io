@@ -11,25 +11,23 @@ tags:
   - Electronics
   - SolidWorks
 ---
-In Fall 2017 and Spring 2018 I took part in an Undergraduate Research Opportunity with the MIT Media Lab's Mediated Matter Group. The work focused on the Digital Construction Platform (DCP), a platform for large-scale on-site fabrication
+<!-- From Fall 2017 to Spring 2018 I worked on the MIT Media Lab's Digital Construction Platform (DCP), a platform for large-scale on-site fabrication
 using real-time data for process control. The DCP is a micro-macro manipulator arm system composed
-of hydraulic and electric robotic arms, carried on a tracked mobile platform. 
+of hydraulic and electric robotic arms, carried on a tracked mobile platform.  -->
 
+From Fall 2017 to Spring 2018 I worked on the MIT Media Lab's Digital Construction Platform (DCP), a platform for large-scale on-site fabrication. 
 
 <figure>
   <img src="/assets/images/portfolio/DCP/DCP_printing.jpg" width="800" height="500">
-  <figcaption></figcaption>
+  <figcaption>The DCP is a micro-macro manipulator arm system composed of hydraulic and electric robotic arms carried on a tracked mobile platform. Pictured above: the DCP constructs a dome structure on a planar surface during a 13.5 hour print in 2016.</figcaption>
 </figure>
 
+My responsibilities included prototyping a scanning LIDAR sensor package to extract environmental topography data that informed the design of the structure geometry and enabled construction on non-planar surfaces. To deliver the prototype, I employed the following skills:
+- Mechanical design in SolidWorks and rapid prototyping via 3D printing.
+- Electromechanical design of a self-contained sensor unit consisting of a LIDAR rangefinder, pan-and-tilt servo assembly, Arduino Mega, Raspberry Pi, and 5V power bank.
+- Programming the Arduino to interface with and control the LIDAR sensor and servo motors (including resolving 2D rangefinder measurements to points in 3D space using servo motor encoder readings and the kinematics of the assembly).
+- Bidirectional communication between the Arduino and Raspberry Pi to remotely operate the system and save the topography data.
 
-The DCP is outfitted with sensors that extract environmental data to inform geometric parameters of the built structure. Sensor data captured and the parameters they influence include:
-- LIDAR 3D point cloud data that informs structure geometry and tool-path generation to build on non-planar surfaces.
-- Wind speed and direction to determine location, arrangement, and porosity of the built structure. Wind data is also useful in the context of additive manufacturing to control the micro-macro manipulator in the presence of a wind disturbance force.
-- Temperature & humidity to influence wall thickness and porosity.
-
-These sensors enable automated design and construction in changing conditions. 
-
-My contribution to this project consisted of prototyping and programming the LIDAR sensor unit.
 
 ## The LIDAR Sensor
 The LIDAR sensor is a Garmin LIDAR-Lite V3 rangefinder mounted on a 3D printed pan-and-tilt servo assembly. The LIDAR sensor and servo motors are controlled by an Arduino Mega, and data is output via a serial connection to a Raspberry Pi 3 Single Board Computer. 
@@ -39,7 +37,7 @@ The LIDAR sensor is a Garmin LIDAR-Lite V3 rangefinder mounted on a 3D printed p
   <figcaption>A close-up view of the LIDAR sensor end-effector.</figcaption>
 </figure>
 
-The LIDAR sensor only collects range information in the direction of the laser emitter, so the sensor performs a hemispherical scan to collect 3D point cloud data. The encoder data from the servo motors is used to resolve each range measurement produced by the LIDAR sensor to a point in 3D space. Below are a photo of the sensor performing a scan and the resulting point cloud plotted and viewed from multiple angles.
+The LIDAR sensor only collects range information in the direction of the laser emitter, so the sensor performs a hemispherical scan to collect 3D point cloud data. The encoder data from the servo motors is used to resolve each 1D range measurement produced by the LIDAR sensor to a point in 3D space. Below are a photo of the sensor performing a scan and the resulting point cloud plotted and viewed from multiple angles.
 
 <figure>
   <img src="/assets/images/portfolio/DCP/OneBoxFromBack.jpg" width="800" height="500">
@@ -71,7 +69,18 @@ In order to test the LIDAR sensor along with the wind + temperature + humidity s
   <figcaption>The DCP positioned the LIDAR sensor at several data collection points at the brink of a small pond. Pictured above, the LIDAR sensor collects data over the water.</figcaption>
 </figure>
 
-For the final results of the field testing, see the paper below.
+Together, the LIDAR, wind, temperature and humidity sensors informed the design of a structure specific to the test environment:
+- LIDAR 3D point cloud data enabled the design of a structure geometry specific to the environment's non-planar surface.
+- Wind speed and direction influenced the location, arrangement, and porosity of the built structure. Wind data may also be used in the context of additive manufacturing to control the micro-macro manipulator in the presence of a wind disturbance force.
+- Temperature & humidity influenced the structure's wall thickness and porosity.
+
+<figure>
+  <img src="/assets/images/portfolio/DCP/dcp-results.jpg" width="800" height="500">
+  <figcaption>The final structure design informed by humidity, temperature, windspeed & direction, and LIDAR sensor readings.</figcaption>
+</figure>
+
+For more information, see the paper below.
+
 
 <!-- ## The Paper -->
 <object data="/assets/images/portfolio/DCP/FAB_Vernacular_IASS_2018.pdf" type="application/pdf" width="700px" height="700px">
