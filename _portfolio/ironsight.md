@@ -14,7 +14,7 @@ tags:
 ---
 Ironsight is my main technical project at work. Here are the publicly releasable details:
 
-<figure>
+<!-- <figure>
   <img src="/assets/images/portfolio/ironsight/slide-1.jpg" width="800" height="500">
   <figcaption></figcaption>
 </figure>
@@ -22,7 +22,18 @@ Ironsight is my main technical project at work. Here are the publicly releasable
 <figure>
   <img src="/assets/images/portfolio/ironsight/slide-2.jpg" width="800" height="500">
   <figcaption></figcaption>
+</figure> -->
+
+<figure>
+  <img src="/assets/images/portfolio/ironsight/slide-1.png" width="800" height="500">
+  <figcaption></figcaption>
 </figure>
+
+<figure>
+  <img src="/assets/images/portfolio/ironsight/slide-2.png" width="800" height="500">
+  <figcaption></figcaption>
+</figure>
+
 
 I am both the Principal Investigator and technical lead on this project. Through this project, I've:
 - Implemented soft real-time control of the Kinova Gen3 7DOF manipulator using its C++ API and the ROS Control library. 
