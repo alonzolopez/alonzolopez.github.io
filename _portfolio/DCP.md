@@ -25,7 +25,7 @@ From Fall 2017 to Spring 2018 I worked on the MIT Media Lab's Digital Constructi
 My responsibilities included prototyping a scanning LIDAR sensor package to extract environmental topography data that informed the design of the structure geometry and enabled construction on non-planar surfaces. To deliver the prototype, I employed the following skills:
 - Mechanical design in SolidWorks and rapid prototyping via 3D printing.
 - Electromechanical design of a self-contained sensor unit consisting of a LIDAR rangefinder, pan-and-tilt servo assembly, Arduino Mega, Raspberry Pi, and 5V power bank.
-- Programming the Arduino to interface with and control the LIDAR sensor and servo motors (including resolving 2D rangefinder measurements to points in 3D space using servo motor encoder readings and the kinematics of the assembly).
+- Programming the Arduino to interface with and control the LIDAR sensor and servo motors (including resolving 1D rangefinder measurements to points in 3D space using servo motor encoder readings and the kinematics of the assembly).
 - Bidirectional communication between the Arduino and Raspberry Pi to remotely operate the system and save the topography data.
 
 
@@ -37,7 +37,7 @@ The LIDAR sensor is a Garmin LIDAR-Lite V3 rangefinder mounted on a 3D printed p
   <figcaption>A close-up view of the LIDAR sensor end-effector.</figcaption>
 </figure>
 
-The LIDAR sensor only collects range information in the direction of the laser emitter, so the sensor performs a hemispherical scan to collect 3D point cloud data. The encoder data from the servo motors is used to resolve each 1D range measurement produced by the LIDAR sensor to a point in 3D space. Below are a photo of the sensor performing a scan and the resulting point cloud plotted and viewed from multiple angles.
+The LIDAR sensor only collects 1D range information in the direction of the laser emitter, so the sensor performs a hemispherical scan to collect 3D point cloud data. The encoder data from the servo motors is used to resolve each 1D range measurement produced by the LIDAR sensor to a point in 3D space. Below are a photo of the sensor performing a scan and the resulting point cloud plotted and viewed from multiple angles.
 
 <figure>
   <img src="/assets/images/portfolio/DCP/OneBoxFromBack.jpg" width="800" height="500">
