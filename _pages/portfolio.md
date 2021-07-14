@@ -46,6 +46,18 @@ feature_row3:
     excerpt: "A continuous-time Kalman filter for relative state estimation between a missile and its target"
     btn_label: "Read More"
     btn_class: "btn--inverse"
+  - image_path: /assets/images/portfolio/dt-kf/true_v_est_bias.png
+    url: "/portfolio/DT-KF/"
+    title: "Discrete-Time Kalman Filter"
+    excerpt: "A discrete-time Kalman filter for calibrating accelerometer bias using GPS"
+    btn_label: "Read More"
+    btn_class: "btn--inverse"
+  - image_path: /assets/images/portfolio/270A/hankel_singular_values.png
+    url: "/portfolio/Linear-Dynamic-Systems/"
+    title: "Linear Dynamic Systems Final Project"
+    excerpt: "Model identification and analysis using empirically-obtained lab data"
+    btn_label: "Read More"
+    btn_class: "btn--inverse"
 ---
 {% include feature_row id="ironsight_row" type="left" %}
 {% include feature_row id="dcp_row" type="right" %}

@@ -10,9 +10,8 @@ output:
     - includes:
       - after_body: "/assets/images/portfolio/dt-kf/avg_error.html"
 ---
-# Problem Statement
-271A Project
-project statement
+In this project I programmed a discrete-time Kalman Filter using noisy GPS measurements to calibrate a biased accelerometer. The combined accelerometer and GPS measurements were then able to accurately track the position and velocity of the simulated vehicle.
+
 ## The Report
 <object data="/assets/images/portfolio/dt-kf/271a_final_project_Alonzo_Lopez.pdf" type="application/pdf" width="700px" height="700px">
     <embed src="/assets/images/portfolio/dt-kf/271a_final_project_Alonzo_Lopez.pdf">
