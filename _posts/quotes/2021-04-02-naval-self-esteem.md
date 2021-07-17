@@ -9,4 +9,4 @@ tags:
 
 > Self-esteem is just the reputation that you have with yourself. You'll always know.
 
-> Naval Ravikant
+> <cite>Naval Ravikant</cite>
