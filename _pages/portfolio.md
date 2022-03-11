@@ -62,7 +62,7 @@ feature_row4:
   - image_path: /assets/images/portfolio/balcony-bar/final.jpg
     url: "/portfolio/balcony-bar/"
     title: "Balcony Bar"
-    excerpt: "TODO"
+    excerpt: "A hanging bar for my balcony"
     btn_label: "Read More"
     btn_class: "btn--inverse"
 ---
