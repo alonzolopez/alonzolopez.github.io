@@ -58,10 +58,18 @@ feature_row3:
     excerpt: "Model identification and analysis using empirically-obtained lab data"
     btn_label: "Read More"
     btn_class: "btn--inverse"
+feature_row4:
+  - image_path: /assets/images/portfolio/balcony-bar/final.jpg
+    url: "/portfolio/balcony-bar/"
+    title: "Balcony Bar"
+    excerpt: "TODO"
+    btn_label: "Read More"
+    btn_class: "btn--inverse"
 ---
 {% include feature_row id="ironsight_row" type="left" %}
 {% include feature_row id="dcp_row" type="right" %}
 {% include feature_row id="feature_row"%}
 {% include feature_row id="feature_row3" %}
+{% include feature_row id="feature_row4" %}
 
 
