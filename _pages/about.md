@@ -9,11 +9,11 @@ B.S. in Mechanical Engineering from MIT.
 
 M.S. in Aerospace Engineering from UCLA.
 
-I work at [The Aerospace Corporation](https://aerospace.org/) as an Innovator in Residence applying robotics to space applications.
+I work at [The Aerospace Corporation](https://aerospace.org/) as a Senior Member of Technical Staff focused on applying robotics to space applications.
 
 Things that are important to me:
 - Family
 - Health
 - Learning
-- Engineering, especially Robotics
 - Music
+- Engineering, especially Robotics
