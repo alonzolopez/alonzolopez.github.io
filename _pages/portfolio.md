@@ -5,7 +5,28 @@ title: "Portfolio"
 author_profile: true
 layout: splash
 permalink: /portfolio/
-feature_row:
+
+feature_row1:
+  - image_path: /assets/images/portfolio/exoromper/exoromper.jpg
+    url: "/portfolio/ExoRomper/"
+    title: "ExoRomper"
+    excerpt: "ML-based satellite pose estimation in space"
+    btl_label: "Read More"
+    btn_class: "btn--inverse"
+  - image_path: /assets/images/portfolio/DCP/Sensor_square.jpg
+    url: "/portfolio/DCP/"
+    title: "Digital Construction Platform"
+    excerpt: 'Environment-specific structures through advanced sensing and Additive Manufacturing'
+    btn_label: "Read More"
+    btn_class: "btn--inverse"
+  - image_path: /assets/images/portfolio/ironsight/ironsight_thumbnail_square.png
+    url: "/portfolio/ironsight/"
+    title: "Ironsight"
+    excerpt: "A robotic test bed for close-proximity interactions between autonomous CubeSats"
+    btn_label: "Read More"
+    btn_class: "btn--inverse"
+
+feature_row2:
   - image_path: /assets/images/portfolio/Volti/Volti_HousingEvolution.resized.jpg
     url: "/portfolio/Volti/"
     title: "Volti"
@@ -25,20 +46,7 @@ feature_row:
     btn_label: "Read More"
     btn_class: "btn--inverse"
 
-dcp_row:
-  - image_path: /assets/images/portfolio/DCP/Sensor_square.jpg
-    url: "/portfolio/DCP/"
-    title: "Digital Construction Platform"
-    excerpt: 'Environment-specific structures through advanced sensing and Additive Manufacturing'
-    btn_label: "Read More"
-    btn_class: "btn--inverse"
-ironsight_row:
-  - image_path: /assets/images/portfolio/ironsight/ironsight_thumbnail_square.png
-    url: "/portfolio/ironsight/"
-    title: "Ironsight"
-    excerpt: "A robotic test bed for close-proximity interactions between autonomous CubeSats"
-    btn_label: "Read More"
-    btn_class: "btn--inverse"
+
 feature_row3:
   - image_path: /assets/images/portfolio/ct-kf/missile-intercept-illustration.resized.png
     url: "/portfolio/CT-KF/"
@@ -66,9 +74,10 @@ feature_row4:
     btn_label: "Read More"
     btn_class: "btn--inverse"
 ---
-{% include feature_row id="ironsight_row" type="left" %}
-{% include feature_row id="dcp_row" type="right" %}
-{% include feature_row id="feature_row"%}
+<!-- {% include feature_row id="ironsight_row" type="left" %}
+{% include feature_row id="dcp_row" type="right" %} -->
+{% include feature_row id="feature_row1" %}
+{% include feature_row id="feature_row2" %}
 {% include feature_row id="feature_row3" %}
 {% include feature_row id="feature_row4" %}
 
