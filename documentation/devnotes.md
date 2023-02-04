@@ -1,4 +1,4 @@
-# Webiste Creation Notes
+# Website Creation Notes
 ## Setup
 1. First, follow [github's instructions to create your own website](https://pages.github.com/).
 
@@ -115,6 +115,16 @@ Next steps:
 - [Custom Sidebar Menu](https://mmistakes.github.io/minimal-mistakes/docs/layouts/#custom-sidebar-navigation-menu)
 - Link to alonzolopez.com
 
+## Manage a Custom Domain
+To point the domain `www.alonzolopez.com` to `alonzolopez.github.io`, follow this guide: [Managing a custom domain for your github pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site). 
+
+Bluehost > Domains > alonzolopez.com > Manage > DNS > CNAME and edit the **www Host Record** so that it points to `alonzolopez.github.io`. It will take some time for the domain
+
+Enable HTTPS: 
+- [Secure the Site with HTTPS](https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https)
+- [HTTPS errors](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages#https-errors)
+
+To get `alonzolopez.com` to work, don't [Configure an apex domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain); instead, go into Bluehost > Domains > Redirects and setup a redirect from original domain `alonzolopez.com` to target domain `https://www.alonzolopez.com` (note the `https`!).
 
 # Workflow Notes
 ## Resources

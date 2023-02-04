@@ -1,9 +1,9 @@
 main:
   - title: "Portfolio"
     url: /portfolio/
-  - title: "Music"
-    url: /music/
-  - title: "Posts"
+  # - title: "Music"
+  #   url: /music/
+  - title: "Blog"
     url: /categories/
   # - title: "Categories"
   #   url: /categories/

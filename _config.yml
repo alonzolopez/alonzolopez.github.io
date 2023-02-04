@@ -70,15 +70,15 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/alonzolopez"
-    - label: "SoundCloud"
-      icon: "fab fa-fw fa-soundcloud"
-      url: "https://soundcloud.com/raging-chili-pepper"
     # - label: "YouTube"
     #   url: "https://www.youtube.com/channel/UCoXeO-TAjg6lHTN-VbZTL-A"
     #   icon: "fab fa-fw fa-youtube"
     - label: "LinkedIn"
       url: "https://www.linkedin.com/in/alonzo-e-lopez/"
       icon: "fab fa-fw fa-linkedin"
+    # - label: "SoundCloud"
+    #   icon: "fab fa-fw fa-soundcloud"
+    #   url: "https://soundcloud.com/alonzolopez"
 
 atom_feed:
   hide: true
@@ -91,6 +91,12 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/alonzolopez"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/alonzo-e-lopez/"
+    # - label: "SoundCloud"
+    #   icon: "fab fa-fw fa-soundcloud"
+    #   url: "https://soundcloud.com/alonzolopez"
 
 defaults:
   # _posts
