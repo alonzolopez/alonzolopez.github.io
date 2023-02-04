@@ -60,7 +60,7 @@ plugins:
 
 author:
   name   : "Alonzo Lopez"
-  avatar : "/assets/images/bio-photo.jpg"
+  avatar : "/assets/images/avatar.jpg"
   bio    : "Professional roboticist, casual musician, avid learner."
   links:
     - label: "Portfolio"
