@@ -7,7 +7,7 @@ layout: splash
 permalink: /portfolio/
 
 feature_row1:
-  - image_path: /assets/images/portfolio/exoromper/exoromper.jpg
+  - image_path: /assets/images/portfolio/exoromper/cad_square.jpeg
     url: "/portfolio/ExoRomper/"
     title: "ExoRomper"
     excerpt: "ML-based satellite pose estimation in space"
@@ -15,8 +15,8 @@ feature_row1:
     btn_class: "btn--inverse"
   - image_path: /assets/images/portfolio/DCP/Sensor_square.jpg
     url: "/portfolio/DCP/"
-    title: "Digital Construction Platform"
-    excerpt: 'Environment-specific structures through advanced sensing and Additive Manufacturing'
+    title: "DCP"
+    excerpt: 'The Digital Construction Platform (DCP) uses additive manufacturing to construct environment-specific structures'
     btn_label: "Read More"
     btn_class: "btn--inverse"
   - image_path: /assets/images/portfolio/ironsight/ironsight_thumbnail_square.png
