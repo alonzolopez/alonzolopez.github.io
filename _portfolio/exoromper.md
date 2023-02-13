@@ -33,12 +33,17 @@ With this payload, we are iteratively updating, deploying, and validating ML mod
 </figure>
 
 My role on the team is to:
-- Implement the satellite pose estimation algorithm using CNNs implemented in TensorFlow/tflite, PnP from OpenCV, and Python
+- Implement the satellite pose estimation algorithm using CNNs implemented in TensorFlow/tflite, PnP from OpenCV, and Python, all deployed to a Google Coral SOM
 - Collect and label operational data for CNN training
 - Set up and run an ML Ops pipeline using Data Version Control (DVC) to train new models, track all model/code/data changes, and produce more accurate CNNs and thus a more accurate satellite pose estimation algorithm
 
+There are a lot more publicly releaseable details to come soon. But for now, here is an image from space! Those are stars in the blurry background :)
 
-## The Pose Estimation Algorithm
+<img src="/assets/images/portfolio/exoromper/exoromper_space_up.jpg">
+
+
+
+<!-- ## The Pose Estimation Algorithm
 The pose estimation algorithm works in a three-step process as follows:
 
 <figure>
@@ -77,6 +82,6 @@ Oh did I mention that the payload is in space already! Here are some pictures st
 <figure>
     <img src="/assets/images/portfolio/exoromper/exoromper_space.jpg">
     <figcaption></figcaption>
-</figure>
+</figure> -->
 
 
