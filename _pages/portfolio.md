@@ -8,7 +8,7 @@ permalink: /portfolio/
 
 feature_row1:
   - image_path: /assets/images/portfolio/exoromper/cad_square.jpeg
-    url: "/portfolio/ExoRomper/"
+    url: "/portfolio/exoromper/"
     title: "ExoRomper"
     excerpt: "ML-based satellite pose estimation in space"
     btl_label: "Read More"
