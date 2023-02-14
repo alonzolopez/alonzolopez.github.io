@@ -131,8 +131,12 @@ To get `alonzolopez.com` to work, don't [Configure an apex domain](https://docs.
 - [Demo Pages](https://mmistakes.github.io/minimal-mistakes/about/#demo-pages)
 ## Building and Testing Locally
 Make changes in the repo, then run the following to test locally:
-```
+```bash
+# normally...
 bundle exec jekyll serve
+
+# if you encounter problems...
+bundle exec jekyll serve --verbose
 ```
 Go to the url in the terminal to see the changes locally.
 
@@ -187,6 +191,12 @@ Basically, just:
     ---
     ```
 3. Populate the page with content in markdown's syntax.
+
+If you encounter any problems viewing a new post, try building the site with the verbose flag:
+
+```bash
+bundle exec jekyll serve --verbose
+```
 
 ## Adding Custom Sidebar Menus
 [Custom Sidebar Menu](https://mmistakes.github.io/minimal-mistakes/docs/layouts/#custom-sidebar-navigation-menu)
