@@ -34,7 +34,7 @@ Nearly 75% of GHG emissions come directly from the energy sector. By electrifyin
 *How exactly does electrifying everything reduce demand for energy?* 
 
 <figure>
-    <img src="/assets/images/blog/energy_saved.jpeg">
+    <img src="/assets/images/blog/energy_saved.jpg">
     <figcaption>
       The following chart from page 53 of Electrify illustrates how each individual step reduces our demand for energy. Some of the energy saving steps include: eliminating thermoelectric losses incurred burning fossil fuels to create electricity; switching to EVs that don't burn fossil fuels in ICEs; eliminating the energy spent in mining fossil fuels that we'll no longer need; using electric heat pumps for space and water heat; converting to LED lighting.
     </figcaption>
