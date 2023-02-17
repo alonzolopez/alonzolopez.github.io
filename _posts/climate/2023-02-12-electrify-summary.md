@@ -8,7 +8,7 @@ categories:
 published: true
 ---
 
-I really enjoyed [Electrify](https://mitpress.mit.edu/9780262545044/electrify/) by Saul Griffith. It's a very practical, rational, and optimistic book about how we can progress on the road to Net Zero. I've distilled my takeaways here, but would highly recommend reading the entire book and absorbing the arguments and data provided.
+I really enjoyed [Electrify](https://mitpress.mit.edu/9780262545044/electrify/) by Saul Griffith. It's a very practical, rational, and optimistic book about how we can progress on the road to Net Zero. I've distilled my takeaways here, but would highly recommend reading the entire book to fully absorb the arguments and data provided.
 
 ## Main Idea
 Nearly 75% of GHG emissions come directly from the energy sector. By electrifying the supply and demand of energy, we can make significant progress in driving this 75% down to zero. This is the most impactful and effective solution on the road to net zero because the technology is ready and scalable, though there are policy, economic, and cultural challenges to overcome. Other solutions are either complementary (i.e. they can help us eliminate the remaining 25% of GHG emissions after electrifying), or distracting false advertising from the incumbent fossil fuel players (e.g. hydrogen, "natural" gas), or miracles that we shouldn't bet on (e.g. carbon sequestration).
