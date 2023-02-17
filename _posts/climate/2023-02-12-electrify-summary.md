@@ -1,12 +1,14 @@
 ---
 title: "Electrify Summary"
-excerpt: "A summary of Electrify"
+excerpt: "A summary of Electrify by Saul Griffith"
 date: 2023-02-12T22:30:30-04:00
 categories:
   - Climate
   - Books
 published: true
 ---
+
+<img src="/assets/images/blog/electrify.png">
 
 I really enjoyed [Electrify](https://mitpress.mit.edu/9780262545044/electrify/) by Saul Griffith. It's a very practical, rational, and optimistic book about how we can progress on the road to Net Zero. I've distilled my takeaways here, but would highly recommend reading the entire book to fully absorb the arguments and data provided.
 
