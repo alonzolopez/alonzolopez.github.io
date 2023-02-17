@@ -30,16 +30,6 @@ Nearly 75% of GHG emissions come directly from the energy sector. By electrifyin
 ## What will it look like?
 "In short, the climate-friendly future will be quite recognizable in terms of the major objects in our lives—our cars, homes, offices, furnaces, and refrigerators. All of these objects will just be electric. There is no need to fear this future, and there will be cost savings and health benefits if we embrace it—oh, and this will also address climate change at the same time." (61)
 
-
-*How exactly does electrifying everything reduce demand for energy?* 
-
-<figure>
-    <img src="/assets/images/blog/energy_saved.jpg">
-    <figcaption>
-      The following chart from page 53 of Electrify illustrates how each individual step reduces our demand for energy. Some of the energy saving steps include: eliminating thermoelectric losses incurred burning fossil fuels to create electricity; switching to EVs that don't burn fossil fuels in ICEs; eliminating the energy spent in mining fossil fuels that we'll no longer need; using electric heat pumps for space and water heat; converting to LED lighting.
-    </figcaption>
-</figure>
-
 ## The Role of the Individual
 *What can individuals do?* Don't focus too much on "the daily grind of small decisions", your "personal climate footprint is largely determined by a handful of infrequent decisions" (5). You just need to make a few big decisions well (98). Those decisions are:
 - Personal transportation - when the time comes to buy a new car, buy an EV. Otherwise, reduce transit-related fossil fuel usage as much as reasonably possible (e.g. public transit, carpool).
@@ -55,6 +45,14 @@ Nearly 75% of GHG emissions come directly from the energy sector. By electrifyin
 See Appendix B for more specific recommendations by occupation.
 
 ## The Details of Electrification
+*How exactly does electrifying everything reduce demand for energy?* 
+<figure>
+    <img src="/assets/images/blog/energy_saved.jpg">
+    <figcaption>
+      The following chart from page 53 of Electrify illustrates how each individual step reduces our demand for energy. Some of the energy saving steps include: eliminating thermoelectric losses incurred burning fossil fuels to create electricity; switching to EVs that don't burn fossil fuels in Internal Combustion Engines (ICEs); eliminating the energy spent in mining fossil fuels that we'll no longer need; using electric heat pumps for space and water heat; converting to LED lighting.
+    </figcaption>
+</figure>
+
 *Where will we get all the land for solar and wind generation?*\
 Land use is an important factor. Solar and wind installations will require lots of land area. We can install solar panels on existing rooftops, parking structures, and along roads. We can install wind turbines on crop land.
 
