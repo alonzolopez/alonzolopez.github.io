@@ -19,7 +19,7 @@ feature_row1:
     excerpt: 'The Digital Construction Platform (DCP) uses additive manufacturing to construct environment-specific structures'
     btn_label: "Read More"
     btn_class: "btn--inverse"
-  - image_path: /assets/images/portfolio/ironsight/ironsight_thumbnail_square.png
+  - image_path: /assets/images/portfolio/ironsight/ironsight_shoulder_square.JPG
     url: "/portfolio/ironsight/"
     title: "Ironsight"
     excerpt: "A robotic test bed for close-proximity interactions between autonomous CubeSats"
