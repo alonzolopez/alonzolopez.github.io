@@ -19,7 +19,7 @@ I am the Principal Investigator and main technical contributor to Ironsight, an 
   <figcaption>Two of the Ironsight robotic manipulators in the foreground, with the rover-mounted manipulator in the background.</figcaption>
 </figure>
 
-The Ironsight testbed features CubeSat sensors and processors mounted on multiple robotic manipulators and rovers. These robotic platforms simulate the motion of space. The testbed is integrated with both the lab's VICON motion capture system to capture sub-mm position and orientation data at 400Hz, and the lab's network for command and control of experiements and for data capture purposes. An accompanying ROS+Gazebo simulation environment is used to safely test experiments before taking them to the lab.
+The Ironsight testbed features CubeSat sensors and processors mounted on multiple robotic manipulators and rovers. These robotic platforms simulate the motion of CubeSats in space. The testbed is integrated with the lab's ROS network, enabling command and control of experiments, integration with the VICON motion capture system to capture sub-mm position and orientation data at 400Hz, and data capture for post-experiment analysis. An accompanying ROS+Gazebo simulation environment is used to safely test experiments before taking them to the lab.
 
 <!-- <figure>
   <img src="/assets/images/portfolio/ironsight/ironsight_profile_light.JPG">
@@ -35,16 +35,13 @@ The Ironsight testbed features CubeSat sensors and processors mounted on multipl
 </figure>
 
 Through this project, I've:
-- Implemented soft real-time control of the Kinova Gen3 7DOF manipulator using its C++ API and the ROS Control library. 
-- Performed the closed-form inverse & forward kinematic analysis as well as the dynamic analysis of both the Kinova Gen3 7DOF and the KUKA LBR iiwa 7DOF.
-- Made the closed-form kinematic and dynamic algorithms available as Python functions for use in online manipulator trajectory generation & command via the ROS Control Action interface. 
-- Designed (in SolidWorks) and fabricated (3D printed) CuseSat emulation hardware consisting of a frame on which the following are mounted: an NVIDIA Jetson Xavier NX, visible light camera, IR camera, depth sensor, and fiducial markers.
+- Implemented soft real-time command and control of the Kinova Gen3 7DOF manipulator using its C++ API and the ROS Control library. 
+- Integrated soft real-time command and control of the KUKA 7DOF manipulator using the LASA Lab's [iiwa_ros repo](https://github.com/epfl-lasa/iiwa_ros).
+- For both the Kinova Gen3 7DOF and the KUKA LBR iiwa 7DOF, implemented the analytical inverse kinematic (IK), forward kinematic (FK), dynamic analyses as Python 3 libraries. 
+- Designed (in SolidWorks) and fabricated CuseSat emulation hardware consisting of a frame on which the following are mounted: an NVIDIA Jetson Xavier NX, visible light camera, IR camera, depth sensor, and fiducial markers. The frame was plastic in V1 and aluminum in V2.
 - Constructed a simulation environment in ROS+Gazebo for the safe testing of technologies before lab operations.
 - Programed manipulator trajectories based on sensor input.
-- Experimented with pose estimation – sensor data processing for visible light and IR cameras using ML-based and traditional computer vision to estimate the position and orientation of objects in the camera's FOV.
-
-
-
+- Experimented with fiducial-based pose estimation implementations – sensor data processing for visible light and IR cameras using computer vision to estimate the position and orientation of objects in the camera's FOV.
 
 <figure>
   <img src="/assets/images/portfolio/ironsight/ironsight_cube_closeup.JPG">
