@@ -13,16 +13,16 @@ feature_row1:
     excerpt: "ML-based satellite pose estimation in space"
     btl_label: "Read More"
     btn_class: "btn--inverse"
-  - image_path: /assets/images/portfolio/DCP/Sensor_square.jpg
-    url: "/portfolio/DCP/"
-    title: "DCP"
-    excerpt: 'The Digital Construction Platform (DCP) uses additive manufacturing to construct environment-specific structures'
-    btn_label: "Read More"
-    btn_class: "btn--inverse"
   - image_path: /assets/images/portfolio/ironsight/ironsight_shoulder_square.JPG
     url: "/portfolio/ironsight/"
     title: "Ironsight"
     excerpt: "A robotic test bed for close-proximity interactions between autonomous CubeSats"
+    btn_label: "Read More"
+    btn_class: "btn--inverse"
+  - image_path: /assets/images/portfolio/DCP/Sensor_square.jpg
+    url: "/portfolio/DCP/"
+    title: "DCP"
+    excerpt: 'The Digital Construction Platform (DCP) uses additive manufacturing to construct environment-specific structures'
     btn_label: "Read More"
     btn_class: "btn--inverse"
 
