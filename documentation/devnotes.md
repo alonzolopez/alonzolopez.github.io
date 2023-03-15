@@ -16,6 +16,7 @@
   - [Adding Pages to the Music Section](#adding-pages-to-the-music-section)
   - [Adding Quotes](#adding-quotes)
   - [Adding a New Post](#adding-a-new-post)
+  - [Writing Draft Posts](#writing-draft-posts)
   - [Adding Custom Sidebar Menus](#adding-custom-sidebar-menus)
   - [Embedding YouTube Videos](#embedding-youtube-videos)
   - [Embedding SoundCloud songs](#embedding-soundcloud-songs)
@@ -200,7 +201,7 @@ To add a new page to the music section, add a new `.md` file under the `_music/`
 
 
 ## Adding Quotes
-To add a new quote to the posts page, add the quote's .md file in `_posts/quotes` following the [YEAR-MONTH-DAY-title.md](https://jekyllrb.com/docs/posts/) format.
+To add a new quote to the posts page, add the quote's .md file in `_quotes/` following the [YEAR-MONTH-DAY-title.md](https://jekyllrb.com/docs/posts/) format.
 
 ## Adding a New Post
 Follow the [working with posts guide](https://mmistakes.github.io/minimal-mistakes/docs/posts/).
@@ -224,6 +225,14 @@ If you encounter any problems viewing a new post, try building the site with the
 ```bash
 bundle exec jekyll serve --verbose
 ```
+
+## Writing Draft Posts
+Drafts are posts without a date in the filename. They’re posts you’re still working on and don’t want to publish yet. To get up and running with drafts, create a _drafts folder in your site’s root and create your first draft:
+
+```bash
+bundle exec jekyll serve --drafts
+```
+
 
 ## Adding Custom Sidebar Menus
 [Custom Sidebar Menu](https://mmistakes.github.io/minimal-mistakes/docs/layouts/#custom-sidebar-navigation-menu)

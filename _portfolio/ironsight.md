@@ -55,6 +55,4 @@ Through this project, I've:
 
 This lab supports the maturation of technologies for emerging mission areas such as Rendezvous & Proximity Operations with Docking (RPOD) and In-space Servicing, Assembly, and Manufacturing (ISAM). To date, we have tested CubeSat technologies that enable autonomous maneuvering, including close-proximity sensing hardware and software, advanced GNC algorithms for autonomous maneuvering, and next-gen wired/wireless communication software and hardware.
 
-
-
-
+For more context on why this testbed is relevant, visit [Aerospace's article on the testbed](https://aerospace.org/article/aerospace-builds-capabilities-future-mission-needs-ironsight).

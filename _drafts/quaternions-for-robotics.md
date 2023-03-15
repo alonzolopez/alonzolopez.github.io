@@ -1,6 +1,6 @@
 ---
 title: "Quaternions for Robotics"
-date: 2023-03-29T09:00:00-00:00
+# date: 2023-03-29T09:00:00-00:00
 excerpt: "A practical summary of quaternions for robotic applications."
 categories:
     - Robotics
