@@ -1,0 +1,307 @@
+---
+title: "Quaternions for Robotics"
+date: 2023-03-29T09:00:00-00:00
+excerpt: "A practical summary of quaternions for robotic applications."
+categories:
+    - Robotics
+---
+
+
+
+## Quaternion Definition
+A quaternion is defined as the following:
+
+$$q = q_0 + \hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3$$
+
+Often this is either represented in scalar-first notation or scalar-last notation:
+
+```
+[q_0, q_1, q_2, q_3] # scalar first
+[q_1, q_2, q_3, q_0] # scalar last
+```
+
+But what do these values mean? 
+
+Conceptually, we can think of a rotation in 3D space as rotating about a vector $\vec{u}$ by a rotation angle $\theta$
+
+<img src="/assets/images/blog/rotations/quat_def.png">
+
+<br />
+
+
+We can write this rotation as $q$, 
+
+$$q = cos\begin{pmatrix} \frac{\theta}{2} \end{pmatrix} + 
+sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
+\vec{u}$$
+
+Where
+
+$$q_0 = cos\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}$$
+
+$$\hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3 = sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
+\vec{u}$$
+
+Thus, we arrive at our original definition,
+
+$$q = q_0 + \hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3 $$
+
+This rotation can be categorized as either an *active* or *passive* transformation. To distinguish between the two, let's use a point as an example.
+
+An active transformation moves (rotates) the point in the current coordinate system.
+
+<video width=600 autoplay muted loop>
+    <source src="/assets/images/blog/rotations/ActiveTransformation.mp4" type="video/mp4">
+</video>{: .align-center}
+
+<br />
+
+A passive transformation expresses the same point in a different (rotated) coordinate system.
+
+(insert picture of passive transformation here)
+
+## Quaternion Multiplication
+The multiplication of two quaternions produces the [Hamilton product](https://en.wikipedia.org/wiki/Quaternion#Hamilton_product).
+
+For two quaternions, 
+
+$$q_a = a_w + \hat{i} a_x + \hat{j} a_y + \hat{k} a_z $$
+
+$$q_b = b_w + \hat{i} b_x + \hat{j} b_y + \hat{k} b_z $$
+
+Their product is
+
+$$q_c = q_a * q_b$$
+
+$$q_c = (a_w + \hat{i} a_x + \hat{j} a_y + \hat{k} a_z)(b_w + \hat{i} b_x + \hat{j} b_y + \hat{k} b_z)$$
+
+$$c_w = a_w b_w - a_x b_x - a_y b_y - a_z b_z$$
+
+$$c_x = a_w b_x + a_x b_w + a_y b_z - a_z b_y$$
+
+$$c_y = a_w b_y - a_x b_z + a_y b_w + a_z b_x$$
+
+$$c_z = a_w b_z + a_x b_y - a_y b_x + a_z b_w$$
+
+$$q_c = c_w + \hat{i} c_x + \hat{j} c_y + \hat{k} c_z $$
+
+This is exactly what MATLAB's [quatmultiply](https://www.mathworks.com/help/aerotbx/ug/quatmultiply.html) function calculates (though the formulas at the bottom of the doc page have their elements arranged differently; if you rearrange them, you'll see they are equivalent).
+
+It's important to note that qauternion multiplication is NOT commutative, i.e. 
+
+$$q_a * q_b \neq q_b * q_a$$
+
+Quaternion multiplication is used often, as you will see in the sections below.
+
+## Coordinate Frame Transformations with Quaternions
+Let's say we have two coordinate frames, $A$ and $B$. 
+
+![](frames_a_and_b.jpeg)
+
+$B$ is rotated $\theta = -45$ degrees about the $a_x$ axis of Frame $A$. The quaternion describing the orientation of $B$ w.r.t. $A$ is thus 
+
+$${}^{A}_{B}q = cos\begin{pmatrix} \frac{-45 ^\circ}{2} \end{pmatrix} + 
+sin\begin{pmatrix} \frac{-45 ^\circ}{2} \end{pmatrix}
+\begin{bmatrix}
+    1 \\ 0 \\ 0
+\end{bmatrix}$$
+
+$${}^{A}_{B}q = 0.9239 - 0.3827 \; \hat{i}$$
+
+We can use quaternions to perform a passive coordinate transformation to take a vector expressed in B, ${}^B\vec{v}$, and express it instead in the $A$ frame as follows:
+
+1. Convert the vector to a pure quaternion, i.e. with zero scalar part (shown below with scalar-first notation)
+
+    $${}^B q_v = \begin{bmatrix}
+        0 \\ {}^B\vec{v}_x \\ {}^B\vec{v}_y \\ {}^B\vec{v}_z
+    \end{bmatrix}$$
+
+2. Perform the coordinate transformation to express the vector in the the $A$ frame. Note that here we use [quaternion multiplication](#quaternion-multiplication)
+
+    $${}^A q_v = {}^{A}_{B}q \; {}^B q_v \; \begin{pmatrix} {}^{A}_{B}q \end{pmatrix}^*$$
+
+3. Extract the vector from the resulting pure quaternion
+
+    $${}^A\vec{v} = \begin{bmatrix}
+        {}^Aq_1 \\ {}^Aq_2 \\ {}^Aq_3
+    \end{bmatrix}$$
+
+Running this through a numerical example: let's say we have a vector expressed in the B frame, 
+
+$${}^B\vec{v} = \begin{bmatrix}
+    0 \\ 0 \\ 1
+\end{bmatrix}$$
+
+
+
+![](vec_example.jpeg)
+
+And as before, the quaternion representing the rotation of Frame $B$ w.r.t. $A$ is (in scalar-first notation):
+
+$${}^{A}_{B}q = cos\begin{pmatrix} \frac{-45^\circ}{2} \end{pmatrix} + 
+sin\begin{pmatrix} \frac{-45^\circ}{2} \end{pmatrix}
+\begin{bmatrix}
+    1 \\ 0 \\ 0
+\end{bmatrix}$$
+
+$${}^{A}_{B}q = [0.9239, \;-0.3827, \;0, \;0]$$
+
+The vector can be expressed in the A frame as follows, 
+
+```matlab
+>> v_wrt_B = [0, 0, 1]
+
+v_wrt_B =
+
+     0     0     1
+
+>> v_wrt_B_purequat = [0, v_wrt_B]
+
+v_wrt_B_purequat =
+
+     0     0     0     1
+
+>> rot_axis = [1, 0, 0]
+
+rot_axis =
+
+     1     0     0
+
+>> q_B_wrt_A = [cosd(-45/2), sind(-45/2) * rot_axis]
+
+q_B_wrt_A =
+
+    0.9239   -0.3827         0         0
+
+>> v_wrt_A_purequat = quatmultiply(q_B_wrt_A, quatmultiply(v_wrt_B_purequat, quatconj(q_B_wrt_A)))
+
+v_wrt_A_purequat =
+
+         0         0    0.7071    0.7071
+```
+
+The resultant vector expressed in $A$ is 
+
+$${}^A\vec{v} = \begin{bmatrix} 0  \\  0.7071  \\  0.7071 \end{bmatrix}$$
+
+which makes sense looking at the picture!
+
+
+## Composite Rotations with Quaternions
+Two successive quaternion rotations, $q$ and $p$, can be combined into one composite rotation, 
+
+$$r = p q$$
+
+where $r$ is the Hamilton product of $p$ and $q$. Notice that the second rotation in the sequence is left-multiplied because quaternion multiplication is not commutative. This is made clear by running through an example.
+
+Let's say we have a vector expressed in the $C$ frame, ${}^{C} v$ (expressed as a pure quaternion), that we'd like to express in the $A$ frame as ${}^{A} v$, but to get to the $A$ frame we have to go through the $B$ frame. This chain of passive transformations is necessary if the direct transformation from $C$ to $A$, ${}^A_C q$, is not yet defined. 
+
+TO-DO: insert picture of this example
+
+We can express ${}^C v$  as ${}^A v$ in two steps: 
+
+1. Perform a passive transformation to express ${}^{C} v$ in the $B$ frame as ${}^{B} v$
+   
+    $$\;{}^B v = {}^{B}_{C}q \; {}^C v \; {}^{B}_{C}q^*$$
+
+2. Perform another passive transformation on the resultant vector ${}^{B} v$ to express it in the $A$ frame as ${}^{A} v$.=
+
+    $${}^A v = {}^{A}_{B}q \; {}^B v \; {}^{A}_{B}q^*$$
+
+Or we can do this in one step as a composite rotation, ${}^{A}_C q = {}^{A}_B q {}^{B}_C q$ 
+
+$${}^A v = {}^{A}_{C}q \; {}^C v \; {}^{A}_{C}q^*$$
+
+Notice that because ${}^{A}_C q = {}^{A}_B q {}^{B}_C q$ where the second rotation ${}^{A}_B q$ is left-multiplied, these two approaches are equivalent:
+
+
+$$composite \; rotation = successive \; rotation$$
+
+$${}^{A}_{C}q \; {}^C v \; {}^{A}_{C}q^* = {}^{A}_{B}q \; {}^B v \; {}^{A}_{B}q^*$$
+
+$$\begin{pmatrix} {}^{A}_{B}q {}^{B}_{C}q \end{pmatrix} \; {}^C v \; \begin{pmatrix} {}^{A}_{B}q {}^{B}_{C}q \end{pmatrix}^* =  {}^{A}_{B}q \begin{pmatrix} {}^{B}_{C}q \; {}^C v \;  {}^{B}_{C}q^* \end{pmatrix} {}^{A}_{B}q^* $$
+
+$$\begin{pmatrix} {}^{A}_{B}q {}^{B}_{C}q \end{pmatrix} \; {}^C v \; \begin{pmatrix} {}^{B}_{C}q^* {}^{A}_{B}q^* \end{pmatrix} = {}^{A}_{B}q \begin{pmatrix} {}^{B}_{C}q \; {}^C v \;  {}^{B}_{C}q^* \end{pmatrix} {}^{A}_{B}q^*$$
+
+### The Negative of a Quaternion
+A quaternion and its negative represent the same resultant rotation, i.e. 
+
+$$q_0 + \hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3 = - q_0 - \hat{i} q_1 - \hat{j} q_2 - \hat{k} q_3 $$
+
+To prove this, let's first start with an equivalent statement
+
+
+$$q(\theta, \vec{u}) = q(\theta + 2 \pi, \vec{u})$$
+
+$$cos\begin{pmatrix} \frac{\theta}{2} \end{pmatrix} + 
+sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
+\vec{u} = cos\begin{pmatrix} \frac{\theta + 2 \pi}{2} \end{pmatrix} + 
+sin\begin{pmatrix} \frac{\theta + 2 \pi}{2} \end{pmatrix}
+\vec{u}$$
+
+Leveraging two trigonometric identities, $cos(\alpha + \pi) = -cos(\alpha)$ and $sin(\alpha + \pi) = - sin(\alpha)$, we arrive at
+
+$$cos\begin{pmatrix} \frac{\theta}{2} \end{pmatrix} + 
+sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
+\vec{u} = - cos\begin{pmatrix} \frac{\theta}{2} \end{pmatrix} - 
+sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
+\vec{u}$$
+
+$$q_0 + \hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3 = - q_0 - \hat{i} q_1 - \hat{j} q_2 - \hat{k} q_3 $$
+
+Thus, we can say that a quaternion and its negative represent the same resultant rotation.
+
+## Angular Rate Calculation from Quaternions
+We can calculate the angular rate command, $W$, that takes us from our current attitude, $q_{est}$, to our desired attitude, $q_{cmd}$ over a time step $dt$ as 
+
+$$2 \dot{q} {q_{cmd}}^{-1} = W$$
+
+where $W$ is a pure quaternion and $q_{cmd}$ is a normal quaternion
+
+$$W = \begin{bmatrix}
+0 & \omega_x & \omega_y & \omega_z
+\end{bmatrix}$$
+
+$$q_{cmd} = \begin{bmatrix}
+q_0 & q_1 & q_2 & q_3
+\end{bmatrix} = q_0 + q_1 \hat{i} + q_2 \hat{j} + q_3 \hat{k}$$
+
+The equation introduced above is just a rearrangement of the following identity
+
+
+$$\dot{q} = \frac{1}{2} W q_{cmd}$$
+
+$$(\dot{q} = \frac{1}{2} W q_{cmd})2$$
+
+$$(2 \dot{q} = W q_{cmd}) {q_{cmd}}^{-1}$$
+
+$$2 \dot{q} {q_{cmd}}^{-1} = W$$
+
+where ${q_{cmd}}^{-1}$ is the inverse $q_{cmd}$.
+
+We can approximate $\dot{q}$ as 
+
+$$\dot{q} = \frac{q_{current} - q_{prev}}{dt} = \frac{q_{cmd} - q_{est}}{dt}$$
+
+Thus, we have $W$, the angular rate command that will achieve our desired attitude, $q_{cmd}$
+
+The code goes:
+
+```matlab
+% differentiate quat by approximation
+q_est = q_est / norm(q_est); % normalize
+q_cmd = q_cmd / norm(q_cmd); % normalize
+q_dot = (q_cmd - q_est)/ dt;
+
+% calc angular rate omega = 2 * q_dot * conj(Qcmd)
+w = 2*quatmultiply(q_dot, quatinv(q_cmd));
+```
+
+## Quaternion Resources
+- [Visualizing quaternions](https://eater.net/quaternions) - a great resource
+- MATLAB resources: [quatmultiply](https://www.mathworks.com/help/aerotbx/ug/quatmultiply.html), [quatrotate](https://www.mathworks.com/help/aerotbx/ug/quatrotate.html), [quaternion](https://www.mathworks.com/help/fusion/ref/quaternion.html), [quatinv](https://www.mathworks.com/help/aerotbx/ug/quatinv.html)
+- [Quaternions and Rotations*](https://graphics.stanford.edu/courses/cs348a-17-winter/Papers/quaternion.pdf)
+- [Quaternion differentiation - The ryg blog](https://fgiesen.wordpress.com/2012/08/24/quaternion-differentiation/)
+- [Quaternion differentiation - Euclidiean Space](https://www.euclideanspace.com/physics/kinematics/angularvelocity/QuaternionDifferentiation2.pdf)
+- [Quaternion Arithmetic - Euclidiean Space](https://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/arithmetic/index.htm)
+
