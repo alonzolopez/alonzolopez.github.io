@@ -1,4 +1,28 @@
 # Website Creation Notes
+- [Website Creation Notes](#website-creation-notes)
+  - [Setup](#setup)
+  - [Jekyll Initial Setup](#jekyll-initial-setup)
+  - [Jekyll Themes](#jekyll-themes)
+  - [Minimal Mistakes Theme](#minimal-mistakes-theme)
+  - [LaTex](#latex)
+  - [Manage a Custom Domain](#manage-a-custom-domain)
+- [Workflow Notes](#workflow-notes)
+  - [Resources](#resources)
+  - [Building and Testing Locally](#building-and-testing-locally)
+  - [Changing the Masthead.](#changing-the-masthead)
+  - [Creating the Portfolio Section](#creating-the-portfolio-section)
+  - [Adding a New Project to the Porftlio](#adding-a-new-project-to-the-porftlio)
+  - [Creating the Music Section](#creating-the-music-section)
+  - [Adding Pages to the Music Section](#adding-pages-to-the-music-section)
+  - [Adding Quotes](#adding-quotes)
+  - [Adding a New Post](#adding-a-new-post)
+  - [Adding Custom Sidebar Menus](#adding-custom-sidebar-menus)
+  - [Embedding YouTube Videos](#embedding-youtube-videos)
+  - [Embedding SoundCloud songs](#embedding-soundcloud-songs)
+- [Minimal Mistakes remote theme starter](#minimal-mistakes-remote-theme-starter)
+  - [Troubleshooting](#troubleshooting)
+
+
 ## Setup
 1. First, follow [github's instructions to create your own website](https://pages.github.com/).
 
@@ -114,6 +138,9 @@ Next steps:
 - Check out [post with a gallery](https://mmistakes.github.io/minimal-mistakes/post%20formats/post-gallery/)
 - [Custom Sidebar Menu](https://mmistakes.github.io/minimal-mistakes/docs/layouts/#custom-sidebar-navigation-menu)
 - Link to alonzolopez.com
+
+## LaTex
+[How to add LaTex to MM](https://www.janmeppe.com/blog/How-to-add-mathjax-to-minimal-mistakes/)
 
 ## Manage a Custom Domain
 To point the domain `www.alonzolopez.com` to `alonzolopez.github.io`, follow this guide: [Managing a custom domain for your github pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site). 
