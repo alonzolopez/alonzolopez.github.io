@@ -49,16 +49,29 @@ $$q = q_0 + \hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3 $$
 This rotation can be categorized as either an *active* or *passive* transformation. To distinguish between the two, let's use a point as an example.
 
 An active transformation moves (rotates) the point in the current coordinate system.
-
-<video width=600 autoplay muted loop>
-    <source src="/assets/images/blog/rotations/ActiveTransformation.mp4" type="video/mp4">
-</video>{: .align-center}
+<figure>
+    <div class="align-center">
+        <video width=600 autoplay muted loop>
+            <source src="/assets/images/blog/rotations/ActiveTransformation.mp4" type="video/mp4">
+        </video> 
+    </div>
+    <figcaption>${}^A p_1$ is transformed to a new point, ${}^A p_2$, via an active transformation.</figcaption>
+</figure>
 
 <br />
 
 A passive transformation expresses the same point in a different (rotated) coordinate system.
 
-(insert picture of passive transformation here)
+<figure>
+    <div class="align-center">
+    <video width=600 autoplay muted loop>
+        <source src="/assets/images/blog/rotations/PassiveTransformation.mp4" type="video/mp4">
+    </video>
+    </div>
+    <figcaption>$p_1$ is expressed first in $A$ then in $B$ after a passive transformation.</figcaption>
+</figure>
+
+<br />
 
 ## Quaternion Multiplication
 The multiplication of two quaternions produces the [Hamilton product](https://en.wikipedia.org/wiki/Quaternion#Hamilton_product).
@@ -93,10 +106,26 @@ $$q_a * q_b \neq q_b * q_a$$
 
 Quaternion multiplication is used often, as you will see in the sections below.
 
+## Quaternion Conjugate
+
+If a quaternion is noted as
+
+$$q = q_0 + \hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3$$
+
+The conjugate of a quaternion is noted as
+
+$$q^* = q_0 - \hat{i} q_1 - \hat{j} q_2 - \hat{k} q_3 $$
+
+Note that ${q}^*$, ${q}^t$, $\tilde{q}$, $\bar{q}$ may all be used to denote the complex conjugate of the quaternion. Also note that conjugating a quaternion twice returns the original quaternion, i.e.
+
+$$q = (q^*)^*$$
+
+This will come up again later...
+
 ## Coordinate Frame Transformations with Quaternions
 Let's say we have two coordinate frames, $A$ and $B$. 
 
-![](frames_a_and_b.jpeg)
+todo: illustrate frames A and B
 
 $B$ is rotated $\theta = -45$ degrees about the $a_x$ axis of Frame $A$. The quaternion describing the orientation of $B$ w.r.t. $A$ is thus 
 
@@ -116,9 +145,9 @@ We can use quaternions to perform a passive coordinate transformation to take a 
         0 \\ {}^B\vec{v}_x \\ {}^B\vec{v}_y \\ {}^B\vec{v}_z
     \end{bmatrix}$$
 
-2. Perform the coordinate transformation to express the vector in the the $A$ frame. Note that here we use [quaternion multiplication](#quaternion-multiplication)
+2. Perform the coordinate transformation to express the vector in the the $A$ frame. Note that here we use [quaternion multiplication](#quaternion-multiplication) and the [quaternion conjugate](#quaternion-conjugate)
 
-    $${}^A q_v = {}^{A}_{B}q \; {}^B q_v \; \begin{pmatrix} {}^{A}_{B}q \end{pmatrix}^*$$
+    $${}^A q_v = {}^{A}_{B}q \; {}^B q_v \; {}^{A}_{B}q^*$$
 
 3. Extract the vector from the resulting pure quaternion
 
@@ -134,7 +163,7 @@ $${}^B\vec{v} = \begin{bmatrix}
 
 
 
-![](vec_example.jpeg)
+todo: illustrate vec_example.jpeg
 
 And as before, the quaternion representing the rotation of Frame $B$ w.r.t. $A$ is (in scalar-first notation):
 
