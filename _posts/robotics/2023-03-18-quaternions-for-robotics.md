@@ -6,7 +6,7 @@ categories:
     - Robotics
 ---
 
-This article summarizes some of the practical uses of quaternions in robotic applications.
+This article summarizes some of the practical uses and operations involving quaternions in robotic applications.
 
 ## Quaternion Basics
 A quaternion is defined as the following:
@@ -64,7 +64,7 @@ Mathematically, we perform this active transformation by applying the quaternion
 
 $${}^A q_2 = q \; ({}^A q_1) \; q^*$$
 
-\${}^A q_1\$ and \${}^A q_2\$ are pure quaternions that represent \${}^A p_1\$ and \${}^A p_2\$, respectively. \${}^A q_2\$ is calculated by multiplying \$q\$ with \${}^A q_1\$, then multiplying that product by \$q^*\$, the [quaternion conjugate](#quaternion-conjugate). Don't worry if that doesn't make sense yet; it will be made clear with examples in later sections.
+/${}^A q_1/$ and /${}^A q_2/$ are pure quaternions that represent /${}^A p_1/$ and /${}^A p_2/$, respectively. /${}^A q_2/$ is calculated by multiplying /$q/$ with /${}^A q_1/$, then multiplying that product by /$q^*/$, the [quaternion conjugate](#quaternion-conjugate). Don't worry if that doesn't make sense yet; it will be made clear with examples in later sections.
 
 On the other hand, a passive transformation *expresses* the same point in a different coordinate system.
 
@@ -81,7 +81,7 @@ Mathematically, this passive transformation is performed by applying the quatern
 
 $${}^B q_1 = q \; ({}^A q_1) \; q^*$$
 
-Similar to above, \${}^A q_1\$ and \${}^B q_1\$ are pure quaternions that represent \${}^A p_1\$ and \${}^B p_1\$, respectively. \${}^B q_1\$ is calculated by multiplying \$q\$ with \${}^A q_1\$, then multiplying that product by \$q^*\$
+Similar to above, /${}^A q_1/$ and /${}^B q_1/$ are pure quaternions that represent /${}^A p_1/$ and /${}^B p_1/$, respectively. /${}^B q_1/$ is calculated by multiplying /$q/$ with /${}^A q_1/$, then multiplying that product by /$q^*/$
 
 ## Quaternion Multiplication
 But how do we actually multiply quaternions? By calculating their [Hamilton product](https://en.wikipedia.org/wiki/Quaternion#Hamilton_product).
@@ -171,7 +171,7 @@ Note that /${q}^*/$, /${q}^t/$, /$\tilde{q}/$, /$\bar{q}/$ may all be used to de
 This will come up again later...
 
 ## Coordinate Frame Transformations with Quaternions
-Let's say we have two coordinate frames, $A$ and $B$. 
+Let's say we have two coordinate frames, /$A/$ and /$B/$. 
 
 <div class="align-center">
     <img src="/assets/images/blog/rotations/FramesAB.png">
@@ -179,7 +179,7 @@ Let's say we have two coordinate frames, $A$ and $B$.
 
 <br />
 
-$B$ is rotated $\theta = -45$ degrees about the $A_x$ axis of Frame $A$. The quaternion describing the orientation of $B$ w.r.t. $A$ is thus 
+/$B/$ is rotated /$\theta = -45/$ degrees about the /$A_x/$ axis of Frame /$A/$. The quaternion describing the orientation of /$B/$ w.r.t. /$A/$ is thus 
 
 $${}^{A}_{B}q = cos\begin{pmatrix} \frac{-45 ^\circ}{2} \end{pmatrix} + 
 sin\begin{pmatrix} \frac{-45 ^\circ}{2} \end{pmatrix}
@@ -189,7 +189,7 @@ sin\begin{pmatrix} \frac{-45 ^\circ}{2} \end{pmatrix}
 
 $${}^{A}_{B}q = 0.9239 - 0.3827 \; \hat{i}$$
 
-We can use quaternions to perform a passive coordinate transformation to take a vector expressed in $B$, ${}^B\vec{v}$, and express it instead in the $A$ frame as follows:
+We can use quaternions to perform a passive coordinate transformation to take a vector expressed in /$B/$, /${}^B\vec{v}/$, and express it instead in the /$A/$ frame as follows:
 
 1. Convert the vector to a pure quaternion, i.e. with zero scalar part (shown below with scalar-first notation)
 
@@ -197,7 +197,7 @@ We can use quaternions to perform a passive coordinate transformation to take a 
         0 \\ {}^B\vec{v}_x \\ {}^B\vec{v}_y \\ {}^B\vec{v}_z
     \end{bmatrix}$$
 
-2. Perform the coordinate transformation to express the vector in the the $A$ frame. Note that here we use [quaternion multiplication](#quaternion-multiplication) and the [quaternion conjugate](#quaternion-conjugate)
+2. Perform the coordinate transformation to express the vector in the the /$A/$ frame. Note that here we use [quaternion multiplication](#quaternion-multiplication) and the [quaternion conjugate](#quaternion-conjugate)
 
     $${}^A q_v = {}^{A}_{B}q \; {}^B q_v \; {}^{A}_{B}q^*$$
 
@@ -207,7 +207,7 @@ We can use quaternions to perform a passive coordinate transformation to take a 
         {}^Aq_1 \\ {}^Aq_2 \\ {}^Aq_3
     \end{bmatrix}$$
 
-Running this through a numerical example: let's say we have a vector expressed in the B frame, 
+Running this through a numerical example: let's say we have a vector expressed in the /$B/$ frame, 
 
 $${}^B\vec{v} = \begin{bmatrix}
     0 \\ 0 \\ 1
@@ -219,7 +219,7 @@ $${}^B\vec{v} = \begin{bmatrix}
     <img src="/assets/images/blog/rotations/VecB.png">
 </div>
 
-And as before, the quaternion representing the rotation of Frame $B$ w.r.t. $A$ is (in scalar-first notation):
+And as before, the quaternion representing the rotation of Frame /$B/$ w.r.t. /$A/$ is (in scalar-first notation):
 
 $${}^{A}_{B}q = cos\begin{pmatrix} \frac{-45^\circ}{2} \end{pmatrix} + 
 sin\begin{pmatrix} \frac{-45^\circ}{2} \end{pmatrix}
@@ -229,7 +229,7 @@ sin\begin{pmatrix} \frac{-45^\circ}{2} \end{pmatrix}
 
 $${}^{A}_{B}q = [0.9239, \;-0.3827, \;0, \;0]$$
 
-The vector can be expressed in the A frame as follows, 
+The vector can be expressed in the /$A/$ frame as follows, 
 
 ```matlab
 >> v_wrt_B = [0, 0, 1]
@@ -263,7 +263,7 @@ v_wrt_A_purequat =
          0         0    0.7071    0.7071
 ```
 
-The resultant vector expressed in $A$ is 
+The resultant vector expressed in /$A/$ is 
 
 $${}^A\vec{v} = \begin{bmatrix} 0  \\  0.7071  \\  0.7071 \end{bmatrix}$$
 
@@ -274,29 +274,29 @@ which makes sense looking at the following picture!
 </div>
 
 ## Composite Rotations with Quaternions
-Two successive quaternion rotations, $q$ and $p$, can be combined into one composite rotation, 
+Two successive quaternion rotations, /$q/$ and /$p/$, can be combined into one composite rotation, 
 
 $$r = p q$$
 
-where $r$ is the Hamilton product of $p$ and $q$. Notice that the second rotation in the sequence is left-multiplied because quaternion multiplication is not commutative. This is made clear by running through an example.
+where /$r/$ is the Hamilton product of /$p/$ and /$q/$. Notice that the second rotation in the sequence is left-multiplied because quaternion multiplication is not commutative. This is made clear by running through an example.
 
-Let's say we have a vector expressed in the $C$ frame, ${}^{C} v$ (expressed as a pure quaternion), that we'd like to express in the $A$ frame as ${}^{A} v$, but to get to the $A$ frame we have to go through the $B$ frame. 
+Let's say we have a vector expressed in the /$C/$ frame, /${}^{C} v/$ (expressed as a pure quaternion), that we'd like to express in the /$A/$ frame as /${}^{A} v/$, but to get to the /$A/$ frame we have to go through the /$B/$ frame. 
 
-We can express ${}^C v$  as ${}^A v$ in two steps: 
+We can express /${}^C v/$  as /${}^A v/$ in two steps: 
 
-1. Perform a passive transformation to express ${}^{C} v$ in the $B$ frame as ${}^{B} v$
+1. Perform a passive transformation to express /${}^{C} v/$ in the /$B/$ frame as /${}^{B} v/$
    
     $$\;{}^B v = {}^{B}_{C}q \; {}^C v \; {}^{B}_{C}q^*$$
 
-2. Perform another passive transformation on the resultant vector ${}^{B} v$ to express it in the $A$ frame as ${}^{A} v$
+2. Perform another passive transformation on the resultant vector /${}^{B} v/$ to express it in the /$A/$ frame as /${}^{A} v/$
 
     $${}^A v = {}^{A}_{B}q \; {}^B v \; {}^{A}_{B}q^*$$
 
-Or we can do this in one step as a *composite* rotation, ${}^{A}_C q = {}^{A}_B q {}^{B}_C q$ 
+Or we can do this in one step as a *composite* rotation, /${}^{A}_C q = {}^{A}_B q {}^{B}_C q/$ 
 
 $${}^A v = {}^{A}_{C}q \; {}^C v \; {}^{A}_{C}q^*$$
 
-Notice that because ${}^{A}_C q = {}^{A}_B q {}^{B}_C q$ where the second rotation ${}^{A}_B q$ is left-multiplied, these two approaches are equivalent:
+Notice that because /${}^{A}_C q = {}^{A}_B q {}^{B}_C q/$ where the second rotation /${}^{A}_B q/$ is left-multiplied, these two approaches are equivalent:
 
 
 $$composite \; rotation = successive \; rotation$$
@@ -341,7 +341,7 @@ sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
 
 $$q_0 + \hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3 = - q_0 - \hat{i} q_1 - \hat{j} q_2 - \hat{k} q_3 $$
 
-Sure enough, if you apply this to [the example above](#coordinate-frame-transformations-with-quaternions), specifically by replacing the quaternion \${}^{A}_{B}q\$ with its negative,
+Sure enough, if you apply this to [the example above](#coordinate-frame-transformations-with-quaternions), specifically by replacing the quaternion /${}^{A}_{B}q/$ with its negative,
 
 $${}^{A}_{B}q = [0.9239, \;-0.3827, \;0, \;0]$$
 
@@ -361,11 +361,11 @@ sin\begin{pmatrix} -\frac{\theta}{2} \end{pmatrix}
 
 
 ## Angular Rate Calculation from Quaternions
-We can calculate the angular rate command, $W$, that takes us from our current attitude, $q_{est}$, to our desired attitude, $q_{cmd}$ over a time step $dt$ as 
+We can calculate the angular rate command, /$W/$, that takes us from our current attitude, /$q_{est}/$, to our desired attitude, /$q_{cmd}/$ over a time step /$dt/$ as 
 
 $$2 \dot{q} {q_{cmd}}^{-1} = W$$
 
-where $W$ is a pure quaternion and $q_{cmd}$ is a normal quaternion
+where /$W/$ is a pure quaternion and /$q_{cmd}/$ is a normal quaternion
 
 $$W = \begin{bmatrix}
 0 & \omega_x & \omega_y & \omega_z
@@ -386,13 +386,13 @@ $$(2 \dot{q} = W q_{cmd}) {q_{cmd}}^{-1}$$
 
 $$2 \dot{q} {q_{cmd}}^{-1} = W$$
 
-where ${q_{cmd}}^{-1}$ is the inverse $q_{cmd}$.
+where /${q_{cmd}}^{-1}/$ is the inverse /$q_{cmd}/$.
 
-We can approximate $\dot{q}$ as 
+We can approximate /$\dot{q}/$ as 
 
 $$\dot{q} = \frac{q_{cmd} - q_{est}}{dt}$$
 
-Thus, we have $W$, the angular rate command that will achieve our desired attitude, $q_{cmd}$
+Thus, we have /$W/$, the angular rate command that will achieve our desired attitude, /$q_{cmd}/$
 
 The code goes:
 
