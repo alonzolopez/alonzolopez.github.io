@@ -1,14 +1,14 @@
 ---
 title: "Quaternions for Robotics"
-# date: 2023-03-29T09:00:00-00:00
+date: 2023-03-18T14:13:00-00:00
 excerpt: "A practical summary of quaternions for robotic applications."
 categories:
     - Robotics
 ---
 
+This article summarizes some of the practical uses of quaternions in robotic applications.
 
-
-## Quaternion Definition
+## Quaternion Basics
 A quaternion is defined as the following:
 
 $$q = q_0 + \hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3$$
@@ -22,14 +22,15 @@ Often this is either represented in scalar-first notation or scalar-last notatio
 
 But what do these values mean? 
 
-Conceptually, we can think of a rotation in 3D space as rotating about a vector $\vec{u}$ by a rotation angle $\theta$
+Conceptually, we can think of a rotation in 3D space as rotating some angle /$\theta/$ about a **unit vector** /$\vec{u}/$
 
-<img src="/assets/images/blog/rotations/quat_def.png">
+<div class="align-center">
+    <img src="/assets/images/blog/rotations/quat_def.png">
+</div>
 
-<br />
 
 
-We can write this rotation as $q$, 
+The quaternion that, when applied, performs this rotation is written as /$q/$, 
 
 $$q = cos\begin{pmatrix} \frac{\theta}{2} \end{pmatrix} + 
 sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
@@ -48,19 +49,24 @@ $$q = q_0 + \hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3 $$
 
 This rotation can be categorized as either an *active* or *passive* transformation. To distinguish between the two, let's use a point as an example.
 
-An active transformation moves (rotates) the point in the current coordinate system.
+An active transformation *tranforms* the point in the current coordinate system to a new point in this same coordinate system. 
+
 <figure>
     <div class="align-center">
         <video width=600 autoplay muted loop>
             <source src="/assets/images/blog/rotations/ActiveTransformation.mp4" type="video/mp4">
         </video> 
     </div>
-    <figcaption>${}^A p_1$ is transformed to a new point, ${}^A p_2$, via an active transformation.</figcaption>
+    <figcaption>/${}^A p_1/$ is transformed to a new point, /${}^A p_2/$, via an active transformation.</figcaption>
 </figure>
 
-<br />
+Mathematically, we perform this active transformation by applying the quaternion as follows
 
-A passive transformation expresses the same point in a different (rotated) coordinate system.
+$${}^A q_2 = q \; ({}^A q_1) \; q^*$$
+
+\${}^A q_1\$ and \${}^A q_2\$ are pure quaternions that represent \${}^A p_1\$ and \${}^A p_2\$, respectively. \${}^A q_2\$ is calculated by multiplying \$q\$ with \${}^A q_1\$, then multiplying that product by \$q^*\$, the [quaternion conjugate](#quaternion-conjugate). Don't worry if that doesn't make sense yet; it will be made clear with examples in later sections.
+
+On the other hand, a passive transformation *expresses* the same point in a different coordinate system.
 
 <figure>
     <div class="align-center">
@@ -68,13 +74,17 @@ A passive transformation expresses the same point in a different (rotated) coord
         <source src="/assets/images/blog/rotations/PassiveTransformation.mp4" type="video/mp4">
     </video>
     </div>
-    <figcaption>$p_1$ is expressed first in $A$ then in $B$ after a passive transformation.</figcaption>
+    <figcaption> /$p_1/$ is expressed first in /$A/$, then after a passive transformation it is expressed in /$B/$.</figcaption>
 </figure>
 
-<br />
+Mathematically, this passive transformation is performed by applying the quaternion as follows
+
+$${}^B q_1 = q \; ({}^A q_1) \; q^*$$
+
+Similar to above, \${}^A q_1\$ and \${}^B q_1\$ are pure quaternions that represent \${}^A p_1\$ and \${}^B p_1\$, respectively. \${}^B q_1\$ is calculated by multiplying \$q\$ with \${}^A q_1\$, then multiplying that product by \$q^*\$
 
 ## Quaternion Multiplication
-The multiplication of two quaternions produces the [Hamilton product](https://en.wikipedia.org/wiki/Quaternion#Hamilton_product).
+But how do we actually multiply quaternions? By calculating their [Hamilton product](https://en.wikipedia.org/wiki/Quaternion#Hamilton_product).
 
 For two quaternions, 
 
@@ -82,7 +92,7 @@ $$q_a = a_w + \hat{i} a_x + \hat{j} a_y + \hat{k} a_z $$
 
 $$q_b = b_w + \hat{i} b_x + \hat{j} b_y + \hat{k} b_z $$
 
-Their product is
+Their Hamilton product is
 
 $$q_c = q_a * q_b$$
 
@@ -104,6 +114,8 @@ It's important to note that qauternion multiplication is NOT commutative, i.e.
 
 $$q_a * q_b \neq q_b * q_a$$
 
+This property is revisited later when we discuss [composite rotations](#composite-rotations-with-quaternions).
+
 Quaternion multiplication is used often, as you will see in the sections below.
 
 ## Quaternion Conjugate
@@ -112,22 +124,62 @@ If a quaternion is noted as
 
 $$q = q_0 + \hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3$$
 
-The conjugate of a quaternion is noted as
+The complex conjugate of a quaternion is noted as
+
+$$q^* = q_0 - \hat{i} q_1 - \hat{j} q_2 - \hat{k} q_3$$
+
+Note that conjugating a quaternion twice returns the original quaternion, i.e.
+
+$$q = (q^*)^*$$
+
+Going back to our conceptual definition of a quaternion as a rotation about a unit vector /$\vec{u}/$ by a rotation angle /$\theta/$, the quaternion conjugate represents a rotation about the same unit vector, /$\vec{u}/$,
+with the same absolute value rotation angle, /$|\theta|/$, but in the opposite direction, /$-\theta/$. So if our original quaternion is a rotation about /$\vec{u}/$ with magnitude /$\theta/$,
+
+$$q = cos\begin{pmatrix} \frac{\theta}{2} \end{pmatrix} + 
+sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
+\vec{u}$$
+
+And the following trigonometric identities are true
+
+$$cos(-\theta) = cos(\theta)$$
+
+$$sin(-\theta) = -sin(\theta)$$
+
+Then our conjugate quaternion represents a rotation about /$\vec{u}/$ with magnitude /$-\theta/$,
+
+$$q^* = cos\begin{pmatrix} -\frac{\theta}{2} \end{pmatrix} + 
+sin\begin{pmatrix} -\frac{\theta}{2} \end{pmatrix}
+\vec{u}$$
+
+$$ q^*= cos\begin{pmatrix} \frac{\theta}{2} \end{pmatrix} - 
+sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
+\vec{u}$$
 
 $$q^* = q_0 - \hat{i} q_1 - \hat{j} q_2 - \hat{k} q_3 $$
 
-Note that ${q}^*$, ${q}^t$, $\tilde{q}$, $\bar{q}$ may all be used to denote the complex conjugate of the quaternion. Also note that conjugating a quaternion twice returns the original quaternion, i.e.
+<div class="align-center">
+    <img src="/assets/images/blog/rotations/quat_conj.png">
+</div>
+<br />
 
-$$q = (q^*)^*$$
+To rotate a pure quaternion, /$r_1/$, /$-\theta/$ degrees about /$\vec{u}/$, apply the complex conjugate quaternion as follows
+
+$$r_2 = q^* \; (r_1) \; q$$
+
+Note that /${q}^*/$, /${q}^t/$, /$\tilde{q}/$, /$\bar{q}/$ may all be used to denote the complex conjugate of the quaternion. 
 
 This will come up again later...
 
 ## Coordinate Frame Transformations with Quaternions
 Let's say we have two coordinate frames, $A$ and $B$. 
 
-todo: illustrate frames A and B
+<div class="align-center">
+    <img src="/assets/images/blog/rotations/FramesAB.png">
+</div>
 
-$B$ is rotated $\theta = -45$ degrees about the $a_x$ axis of Frame $A$. The quaternion describing the orientation of $B$ w.r.t. $A$ is thus 
+<br />
+
+$B$ is rotated $\theta = -45$ degrees about the $A_x$ axis of Frame $A$. The quaternion describing the orientation of $B$ w.r.t. $A$ is thus 
 
 $${}^{A}_{B}q = cos\begin{pmatrix} \frac{-45 ^\circ}{2} \end{pmatrix} + 
 sin\begin{pmatrix} \frac{-45 ^\circ}{2} \end{pmatrix}
@@ -137,7 +189,7 @@ sin\begin{pmatrix} \frac{-45 ^\circ}{2} \end{pmatrix}
 
 $${}^{A}_{B}q = 0.9239 - 0.3827 \; \hat{i}$$
 
-We can use quaternions to perform a passive coordinate transformation to take a vector expressed in B, ${}^B\vec{v}$, and express it instead in the $A$ frame as follows:
+We can use quaternions to perform a passive coordinate transformation to take a vector expressed in $B$, ${}^B\vec{v}$, and express it instead in the $A$ frame as follows:
 
 1. Convert the vector to a pure quaternion, i.e. with zero scalar part (shown below with scalar-first notation)
 
@@ -163,7 +215,9 @@ $${}^B\vec{v} = \begin{bmatrix}
 
 
 
-todo: illustrate vec_example.jpeg
+<div class="align-center">
+    <img src="/assets/images/blog/rotations/VecB.png">
+</div>
 
 And as before, the quaternion representing the rotation of Frame $B$ w.r.t. $A$ is (in scalar-first notation):
 
@@ -213,8 +267,11 @@ The resultant vector expressed in $A$ is
 
 $${}^A\vec{v} = \begin{bmatrix} 0  \\  0.7071  \\  0.7071 \end{bmatrix}$$
 
-which makes sense looking at the picture!
+which makes sense looking at the following picture!
 
+<div class="align-center">
+    <img src="/assets/images/blog/rotations/VecA.png">
+</div>
 
 ## Composite Rotations with Quaternions
 Two successive quaternion rotations, $q$ and $p$, can be combined into one composite rotation, 
@@ -223,9 +280,7 @@ $$r = p q$$
 
 where $r$ is the Hamilton product of $p$ and $q$. Notice that the second rotation in the sequence is left-multiplied because quaternion multiplication is not commutative. This is made clear by running through an example.
 
-Let's say we have a vector expressed in the $C$ frame, ${}^{C} v$ (expressed as a pure quaternion), that we'd like to express in the $A$ frame as ${}^{A} v$, but to get to the $A$ frame we have to go through the $B$ frame. This chain of passive transformations is necessary if the direct transformation from $C$ to $A$, ${}^A_C q$, is not yet defined. 
-
-TO-DO: insert picture of this example
+Let's say we have a vector expressed in the $C$ frame, ${}^{C} v$ (expressed as a pure quaternion), that we'd like to express in the $A$ frame as ${}^{A} v$, but to get to the $A$ frame we have to go through the $B$ frame. 
 
 We can express ${}^C v$  as ${}^A v$ in two steps: 
 
@@ -233,11 +288,11 @@ We can express ${}^C v$  as ${}^A v$ in two steps:
    
     $$\;{}^B v = {}^{B}_{C}q \; {}^C v \; {}^{B}_{C}q^*$$
 
-2. Perform another passive transformation on the resultant vector ${}^{B} v$ to express it in the $A$ frame as ${}^{A} v$.=
+2. Perform another passive transformation on the resultant vector ${}^{B} v$ to express it in the $A$ frame as ${}^{A} v$
 
     $${}^A v = {}^{A}_{B}q \; {}^B v \; {}^{A}_{B}q^*$$
 
-Or we can do this in one step as a composite rotation, ${}^{A}_C q = {}^{A}_B q {}^{B}_C q$ 
+Or we can do this in one step as a *composite* rotation, ${}^{A}_C q = {}^{A}_B q {}^{B}_C q$ 
 
 $${}^A v = {}^{A}_{C}q \; {}^C v \; {}^{A}_{C}q^*$$
 
@@ -252,8 +307,10 @@ $$\begin{pmatrix} {}^{A}_{B}q {}^{B}_{C}q \end{pmatrix} \; {}^C v \; \begin{pmat
 
 $$\begin{pmatrix} {}^{A}_{B}q {}^{B}_{C}q \end{pmatrix} \; {}^C v \; \begin{pmatrix} {}^{B}_{C}q^* {}^{A}_{B}q^* \end{pmatrix} = {}^{A}_{B}q \begin{pmatrix} {}^{B}_{C}q \; {}^C v \;  {}^{B}_{C}q^* \end{pmatrix} {}^{A}_{B}q^*$$
 
-### The Negative of a Quaternion
-A quaternion and its negative represent the same resultant rotation, i.e. 
+This same logic applies to composite active rotations.
+
+## The Negative of a Quaternion
+A quaternion and its negative represent the same resultant 3D rotation, i.e. 
 
 $$q_0 + \hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3 = - q_0 - \hat{i} q_1 - \hat{j} q_2 - \hat{k} q_3 $$
 
@@ -268,7 +325,13 @@ sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
 sin\begin{pmatrix} \frac{\theta + 2 \pi}{2} \end{pmatrix}
 \vec{u}$$
 
-Leveraging two trigonometric identities, $cos(\alpha + \pi) = -cos(\alpha)$ and $sin(\alpha + \pi) = - sin(\alpha)$, we arrive at
+Leveraging two trigonometric identities, 
+
+$$cos(\alpha + \pi) = -cos(\alpha)$$
+
+$$sin(\alpha + \pi) = - sin(\alpha)$$
+
+We arrive at
 
 $$cos\begin{pmatrix} \frac{\theta}{2} \end{pmatrix} + 
 sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
@@ -278,7 +341,24 @@ sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
 
 $$q_0 + \hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3 = - q_0 - \hat{i} q_1 - \hat{j} q_2 - \hat{k} q_3 $$
 
-Thus, we can say that a quaternion and its negative represent the same resultant rotation.
+Sure enough, if you apply this to [the example above](#coordinate-frame-transformations-with-quaternions), specifically by replacing the quaternion \${}^{A}_{B}q\$ with its negative,
+
+$${}^{A}_{B}q = [0.9239, \;-0.3827, \;0, \;0]$$
+
+$$\downarrow$$
+
+$${}^{A}_{B}q = [-0.9239, \;0.3827, \;0, \;0]$$
+
+you will arrive at the same solution. Thus, we can say that a quaternion and its negative represent the same 3D rotation.
+
+Similarly, rotating /$\theta/$ degrees about /$\vec{u}/$ is the same as rotating /$-\theta/$ degrees about /$-\vec{u}/$. Remembering that /$cos(-\theta) = cos(\theta)/$ and /$sin(-\theta) = -sin(\theta)/$,
+
+$$cos\begin{pmatrix} \frac{\theta}{2} \end{pmatrix} + 
+sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
+\vec{u} = cos\begin{pmatrix} -\frac{\theta}{2} \end{pmatrix} + 
+sin\begin{pmatrix} -\frac{\theta}{2} \end{pmatrix}
+(-\vec{u})$$
+
 
 ## Angular Rate Calculation from Quaternions
 We can calculate the angular rate command, $W$, that takes us from our current attitude, $q_{est}$, to our desired attitude, $q_{cmd}$ over a time step $dt$ as 
@@ -310,7 +390,7 @@ where ${q_{cmd}}^{-1}$ is the inverse $q_{cmd}$.
 
 We can approximate $\dot{q}$ as 
 
-$$\dot{q} = \frac{q_{current} - q_{prev}}{dt} = \frac{q_{cmd} - q_{est}}{dt}$$
+$$\dot{q} = \frac{q_{cmd} - q_{est}}{dt}$$
 
 Thus, we have $W$, the angular rate command that will achieve our desired attitude, $q_{cmd}$
 
@@ -327,6 +407,7 @@ w = 2*quatmultiply(q_dot, quatinv(q_cmd));
 ```
 
 ## Quaternion Resources
+Just some of the resources I have found helpful when learning about quaternions:
 - [Visualizing quaternions](https://eater.net/quaternions) - a great resource
 - MATLAB resources: [quatmultiply](https://www.mathworks.com/help/aerotbx/ug/quatmultiply.html), [quatrotate](https://www.mathworks.com/help/aerotbx/ug/quatrotate.html), [quaternion](https://www.mathworks.com/help/fusion/ref/quaternion.html), [quatinv](https://www.mathworks.com/help/aerotbx/ug/quatinv.html)
 - [Quaternions and Rotations*](https://graphics.stanford.edu/courses/cs348a-17-winter/Papers/quaternion.pdf)
