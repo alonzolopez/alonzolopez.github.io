@@ -1,6 +1,8 @@
 ---
 title: "Electrify Summary"
 excerpt: "A summary of Electrify by Saul Griffith"
+header:
+  teaser: "/assets/images/blog/electrify.png"
 date: 2023-02-12T22:30:30-04:00
 categories:
   - Climate
