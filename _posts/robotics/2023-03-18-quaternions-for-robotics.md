@@ -1,6 +1,8 @@
 ---
 title: "Quaternions for Robotics"
 date: 2023-03-18T14:13:00-00:00
+header:
+    teaser: "/assets/images/blog/rotations/quat_def.png"
 excerpt: "A practical summary of quaternions for robotic applications."
 categories:
     - Robotics
