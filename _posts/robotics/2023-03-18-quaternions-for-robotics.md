@@ -55,7 +55,7 @@ An active transformation *tranforms* the point in the current coordinate system 
 
 <figure>
     <div class="align-center">
-        <video width="100%" autoplay muted loop >
+        <video width="100%" autoplay muted playsinline loop >
             <source src="/assets/images/blog/rotations/ActiveTransformation.mp4" type="video/mp4">
         </video> 
     </div>
@@ -72,7 +72,7 @@ On the other hand, a passive transformation *expresses* the same point in a diff
 
 <figure>
     <div class="align-center">
-    <video width="100%" autoplay muted loop>
+    <video width="100%" autoplay playsinline muted loop>
         <source src="/assets/images/blog/rotations/PassiveTransformation.mp4" type="video/mp4">
     </video>
     </div>
