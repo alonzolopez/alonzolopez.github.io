@@ -53,7 +53,7 @@ An active transformation *tranforms* the point in the current coordinate system 
 
 <figure>
     <div class="align-center">
-        <video width=600 autoplay muted loop>
+        <video width="100%" autoplay muted loop >
             <source src="/assets/images/blog/rotations/ActiveTransformation.mp4" type="video/mp4">
         </video> 
     </div>
@@ -70,7 +70,7 @@ On the other hand, a passive transformation *expresses* the same point in a diff
 
 <figure>
     <div class="align-center">
-    <video width=600 autoplay muted loop>
+    <video width="100%" autoplay muted loop>
         <source src="/assets/images/blog/rotations/PassiveTransformation.mp4" type="video/mp4">
     </video>
     </div>
@@ -96,7 +96,7 @@ Their Hamilton product is
 
 $$q_c = q_a * q_b$$
 
-$$q_c = (a_w + \hat{i} a_x + \hat{j} a_y + \hat{k} a_z)(b_w + \hat{i} b_x + \hat{j} b_y + \hat{k} b_z)$$
+$$q_c = c_w + \hat{i} c_x + \hat{j} c_y + \hat{k} c_z $$
 
 $$c_w = a_w b_w - a_x b_x - a_y b_y - a_z b_z$$
 
@@ -106,7 +106,7 @@ $$c_y = a_w b_y - a_x b_z + a_y b_w + a_z b_x$$
 
 $$c_z = a_w b_z + a_x b_y - a_y b_x + a_z b_w$$
 
-$$q_c = c_w + \hat{i} c_x + \hat{j} c_y + \hat{k} c_z $$
+
 
 This is exactly what MATLAB's [quatmultiply](https://www.mathworks.com/help/aerotbx/ug/quatmultiply.html) function calculates (though the formulas at the bottom of the doc page have their elements arranged differently; if you rearrange them, you'll see they are equivalent).
 
@@ -296,36 +296,35 @@ Or we can do this in one step as a *composite* rotation, /${}^{A}_C q = {}^{A}_B
 
 $${}^A v = {}^{A}_{C}q \; {}^C v \; {}^{A}_{C}q^*$$
 
-Notice that because /${}^{A}_C q = {}^{A}_B q {}^{B}_C q/$ where the second rotation /${}^{A}_B q/$ is left-multiplied, these two approaches are equivalent:
+Notice that because /${}^{A}_C q = {}^{A}_B q {}^{B}_C q/$ where the second rotation /${}^{A}_B q/$ is left-multiplied, these two approaches are equivalent. They both calculate /${}^{A} v/$ as follows
 
+$${}^{A} v = {}^{A}_{C}q \; {}^C v \; {}^{A}_{C}q^*$$
 
-$$composite \; rotation = successive \; rotation$$
+$${}^{A} v = \begin{pmatrix} {}^{A}_{B}q {}^{B}_{C}q \end{pmatrix} \; {}^C v \; \begin{pmatrix} {}^{A}_{B}q {}^{B}_{C}q \end{pmatrix}^*$$
 
-$${}^{A}_{C}q \; {}^C v \; {}^{A}_{C}q^* = {}^{A}_{B}q \; {}^B v \; {}^{A}_{B}q^*$$
-
-$$\begin{pmatrix} {}^{A}_{B}q {}^{B}_{C}q \end{pmatrix} \; {}^C v \; \begin{pmatrix} {}^{A}_{B}q {}^{B}_{C}q \end{pmatrix}^* =  {}^{A}_{B}q \begin{pmatrix} {}^{B}_{C}q \; {}^C v \;  {}^{B}_{C}q^* \end{pmatrix} {}^{A}_{B}q^* $$
-
-$$\begin{pmatrix} {}^{A}_{B}q {}^{B}_{C}q \end{pmatrix} \; {}^C v \; \begin{pmatrix} {}^{B}_{C}q^* {}^{A}_{B}q^* \end{pmatrix} = {}^{A}_{B}q \begin{pmatrix} {}^{B}_{C}q \; {}^C v \;  {}^{B}_{C}q^* \end{pmatrix} {}^{A}_{B}q^*$$
+$${}^{A} v = \begin{pmatrix} {}^{A}_{B}q {}^{B}_{C}q \end{pmatrix} \; {}^C v \; \begin{pmatrix} {}^{B}_{C}q^* {}^{A}_{B}q^* \end{pmatrix}$$
 
 This same logic applies to composite active rotations.
 
 ## The Negative of a Quaternion
 A quaternion and its negative represent the same resultant 3D rotation, i.e. 
 
-$$q_0 + \hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3 = - q_0 - \hat{i} q_1 - \hat{j} q_2 - \hat{k} q_3 $$
+$$q_0 + \hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3 = \\ - q_0 - \hat{i} q_1 - \hat{j} q_2 - \hat{k} q_3 $$
 
-To prove this, let's first start with an equivalent statement
+To prove this, let's first start with an equivalent statement: a rotation by /$\theta/$ is equal to a rotation by /$\theta + 2 \pi/$
 
 
 $$q(\theta, \vec{u}) = q(\theta + 2 \pi, \vec{u})$$
 
+Plugging this into our quaternion formulation,
+
 $$cos\begin{pmatrix} \frac{\theta}{2} \end{pmatrix} + 
 sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
-\vec{u} = cos\begin{pmatrix} \frac{\theta + 2 \pi}{2} \end{pmatrix} + 
+\vec{u} = \\ cos\begin{pmatrix} \frac{\theta + 2 \pi}{2} \end{pmatrix} + 
 sin\begin{pmatrix} \frac{\theta + 2 \pi}{2} \end{pmatrix}
 \vec{u}$$
 
-Leveraging two trigonometric identities, 
+Then leveraging two trigonometric identities, 
 
 $$cos(\alpha + \pi) = -cos(\alpha)$$
 
@@ -335,11 +334,13 @@ We arrive at
 
 $$cos\begin{pmatrix} \frac{\theta}{2} \end{pmatrix} + 
 sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
-\vec{u} = - cos\begin{pmatrix} \frac{\theta}{2} \end{pmatrix} - 
+\vec{u} = \\ - cos\begin{pmatrix} \frac{\theta}{2} \end{pmatrix} - 
 sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
 \vec{u}$$
 
-$$q_0 + \hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3 = - q_0 - \hat{i} q_1 - \hat{j} q_2 - \hat{k} q_3 $$
+And finally in the familiar quaternion form
+
+$$q_0 + \hat{i} q_1 + \hat{j} q_2 + \hat{k} q_3 = \\ - q_0 - \hat{i} q_1 - \hat{j} q_2 - \hat{k} q_3 $$
 
 Sure enough, if you apply this to [the example above](#coordinate-frame-transformations-with-quaternions), specifically by replacing the quaternion /${}^{A}_{B}q/$ with its negative,
 
@@ -349,13 +350,13 @@ $$\downarrow$$
 
 $${}^{A}_{B}q = [-0.9239, \;0.3827, \;0, \;0]$$
 
-you will arrive at the same solution. Thus, we can say that a quaternion and its negative represent the same 3D rotation.
+you will arrive at the same solution as in the original example. Thus, we can say that a quaternion and its negative represent the same 3D rotation.
 
 Similarly, rotating /$\theta/$ degrees about /$\vec{u}/$ is the same as rotating /$-\theta/$ degrees about /$-\vec{u}/$. Remembering that /$cos(-\theta) = cos(\theta)/$ and /$sin(-\theta) = -sin(\theta)/$,
 
 $$cos\begin{pmatrix} \frac{\theta}{2} \end{pmatrix} + 
 sin\begin{pmatrix} \frac{\theta}{2} \end{pmatrix}
-\vec{u} = cos\begin{pmatrix} -\frac{\theta}{2} \end{pmatrix} + 
+\vec{u} = \\ cos\begin{pmatrix} -\frac{\theta}{2} \end{pmatrix} + 
 sin\begin{pmatrix} -\frac{\theta}{2} \end{pmatrix}
 (-\vec{u})$$
 
@@ -373,7 +374,7 @@ $$W = \begin{bmatrix}
 
 $$q_{cmd} = \begin{bmatrix}
 q_0 & q_1 & q_2 & q_3
-\end{bmatrix} = q_0 + q_1 \hat{i} + q_2 \hat{j} + q_3 \hat{k}$$
+\end{bmatrix}$$
 
 The equation introduced above is just a rearrangement of the following identity
 
