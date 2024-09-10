@@ -7,7 +7,7 @@ layout: splash
 permalink: /portfolio/
 
 feature_row1:
-  - image_path: /assets/images/portfolio/exoromper/cad_square.jpeg
+  - image_path: /assets/images/portfolio/exoromper/sample_image_square.png
     url: "/portfolio/exoromper/"
     title: "ExoRomper"
     excerpt: "ML-based satellite pose estimation in space"

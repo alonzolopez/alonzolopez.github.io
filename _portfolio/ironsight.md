@@ -12,7 +12,7 @@ tags:
   - Robotic Manipulator
   - Project Management
 ---
-I am the Principal Investigator and main technical contributor to Ironsight, an Aerospace lab testbed for maturing CubeSat technologies that enable emerging multi-vehicle mission areas.
+I was the Principal Investigator and main technical contributor to Ironsight, an Aerospace lab testbed for maturing CubeSat technologies used in multi-vehicle mission areas.
 
 <figure>
   <img src="/assets/images/portfolio/ironsight/ironsight_lab_iso_light.JPG">
@@ -37,6 +37,7 @@ The Ironsight testbed features CubeSat sensors and processors mounted on multipl
 Through this project, I've:
 - Implemented soft real-time command and control of the Kinova Gen3 7DOF manipulator using its C++ API and the ROS Control library. 
 - Integrated soft real-time command and control of the KUKA 7DOF manipulator using the LASA Lab's [iiwa_ros repo](https://github.com/epfl-lasa/iiwa_ros).
+- Integrated soft real-time command and control of the UR10e 6DOF manipulator using the [Universal Robots ROS1 Driver](https://github.com/UniversalRobots/Universal_Robots_ROS_Driver)
 - For both the Kinova Gen3 7DOF and the KUKA LBR iiwa 7DOF, implemented the analytical inverse kinematic (IK), forward kinematic (FK), dynamic analyses as Python 3 libraries. 
 - Designed (in SolidWorks) and fabricated CuseSat emulation hardware consisting of a frame on which the following are mounted: an NVIDIA Jetson Xavier NX, visible light camera, IR camera, depth sensor, and fiducial markers. The frame was plastic in V1 and aluminum in V2.
 - Constructed a simulation environment in ROS+Gazebo for the safe testing of technologies before lab operations.
