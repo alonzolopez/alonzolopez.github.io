@@ -43,13 +43,13 @@ This is repeated with /$N*2/$ features all the way up to /$N=64,000/$ features.
 
 ### Matching speed
 
-The matching time versus /$N/$ is plotted below:
+The matching time versus /$N/$ detected features is plotted below:
 
 <div class="align-center">
     <iframe src="/assets/images/blog/feature_matching/time_vs_n_features.html" width="100%" height="500px" style="border: none;"></iframe>
 </div>
 
-For /$N<2,500/$, HBST is faster than all of the other algorithms because it does not have to build an index. 
+For /$N<2,500/$ detected features, HBST is faster than all of the other algorithms because it does not have to build an index. 
 But for values of /$N>=2,500/$, the other algorithms win out because the time to build an 
 index is balanced out with the speed of the search using the index. For values of /$N>=2,500/$, 
 HBST is consistently the fastest, followed by FLANN with multi-probe LSH, then FLANN with k-d trees.
@@ -57,18 +57,18 @@ HBST is consistently the fastest, followed by FLANN with multi-probe LSH, then F
 
 ### Number of matches
 
-The number of matches versus /$N/$ is plotted below:
+The number of matches versus /$N/$ detected features is plotted below:
 
 <iframe src="/assets/images/blog/feature_matching/matches_vs_n_features.html" width="100%" height="500px" style="border: none;"></iframe>
 
 Brute-force Hamming consistently provides the most matches that pass the distance threshold, 
 followed very closely by FLANN with multi-probe LSH. 
 HBST provides fewer matches than both of the top matching performers, 
-but what it lacks in number of matches it makes up in speed for large values of /$N/$. 
+but what it lacks in number of matches it makes up in speed for large values of /$N/$ detected features. 
 FLANN with k-d trees fails to make accurate matches when filtering with a distance threshold.
 
 ## Conclusion
 
-For small values of /$N<2,500/$, use Brute-force Hamming distance matching.
+For small values of /$N<2,500/$ features to match, use Brute-force Hamming distance matching.
 
-For large values of /$N>=2,500/$, use either HBST or FLANN with multi-probe LSH.
+For large values of /$N>=2,500/$ features to match, use either HBST or FLANN with multi-probe LSH.
