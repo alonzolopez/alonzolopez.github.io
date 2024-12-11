@@ -22,7 +22,7 @@
 
         # IF CLT: or Xcode output starts with `14`, install the latest version of ruby
         # with this command
-        ruby-install ruby -- --enable-shared 
+        ruby-install ruby 3.3.5 --enable-shared 
 
         # else
         ruby-install ruby
