@@ -1,17 +1,23 @@
 ---
 title: "A Comparison of Binary Feature Vector Matching Algorithms"
-excerpt: "Comparing..."
+excerpt: "Comparing the speed and accuracy of several feature matching algorithms"
 categories:
     - Robotics
+tags:
+    - Computer Vision
 ---
 
 # Feature Matching Algorithm Comparison
 
 This post offers a comparison of the following binary feature matching algorithms:
 - Brute force Hamming distance comparison 
-- Hamming distance embedding Binary Tree Search (HBST)
+- Hamming distance embedding Binary Search Tree (HBST)
 - FLANN with Multi-Probe Locality Sensitive Hashing (LSH)
 - FLANN with k-d trees
+
+The feature detection and matching C++ code can be viewed [here](https://github.com/alonzolopez/cv-exercises/blob/master/07_feature_detection_and_matching/02_ORB_matching/main.cpp).
+For all algorithms except for HBST, the OpenCV implementations are used. 
+For HBST, [srrg_hbst](https://gitlab.com/srrg-software/srrg_hbst) is used.
 
 ## Procedure
 
@@ -43,7 +49,10 @@ The matching time versus /$N/$ is plotted below:
     <iframe src="/assets/images/blog/feature_matching/time_vs_n_features.html" width="100%" height="500px" style="border: none;"></iframe>
 </div>
 
-For /$N<2,500/$, HBST is faster than all of the other algorithms because it does not have to build an index. But for values of /$N>=2,500/$, the other algorithms win out because the time to build an index is balanced out with the speed of the search using the index. For values of /$N>=2,500/$, HBST is consistently the fastest, followed by FLANN with multi-probe LSH, then FLANN with k-d trees.
+For /$N<2,500/$, HBST is faster than all of the other algorithms because it does not have to build an index. 
+But for values of /$N>=2,500/$, the other algorithms win out because the time to build an 
+index is balanced out with the speed of the search using the index. For values of /$N>=2,500/$, 
+HBST is consistently the fastest, followed by FLANN with multi-probe LSH, then FLANN with k-d trees.
 
 
 ### Number of matches
@@ -52,7 +61,11 @@ The number of matches versus /$N/$ is plotted below:
 
 <iframe src="/assets/images/blog/feature_matching/matches_vs_n_features.html" width="100%" height="500px" style="border: none;"></iframe>
 
-Brute-force Hamming consistently provides the most matches that pass the distance threshold, followed very closely by FLANN with multi-probe LSH. HBST provides fewer matches than both of the top performers, but what it lacks in number of matches it makes up in speed for large values of /$N/$. FLANN with k-d trees fails to make accurate matches when filtering with a distance threshold.
+Brute-force Hamming consistently provides the most matches that pass the distance threshold, 
+followed very closely by FLANN with multi-probe LSH. 
+HBST provides fewer matches than both of the top matching performers, 
+but what it lacks in number of matches it makes up in speed for large values of /$N/$. 
+FLANN with k-d trees fails to make accurate matches when filtering with a distance threshold.
 
 ## Conclusion
 
