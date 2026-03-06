@@ -50,7 +50,16 @@
 3. Build the website locally:
     ```bash
     cd <path-to-alonzolopez.github.io>
-    bundle exec jekyll serve
+    make serve
     ```
-    
+
     Then open `http://localhost:4000` in your browser to view the website locally.
+
+## Development
+
+A `Makefile` is provided for convenience:
+
+| Command | Description |
+|---|---|
+| `make help` | List available targets |
+| `make serve` | Run the site locally at http://localhost:4000 |
